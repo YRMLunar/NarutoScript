@@ -1,0 +1,210 @@
+{
+  "识别主场景": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/体力.png",
+    "next": [
+      "左滑"
+    ]
+  },
+  "左滑": {
+    "action": "Swipe",
+    "end": [
+      1156,
+      247,
+      1,
+      1
+    ],
+    "begin": [
+      116,
+      266,
+      1,
+      1
+    ],
+    "duration": 200,
+    "next": [
+      "组织识别",
+      "右滑"
+    ]
+  },
+  "右滑": {
+    "action": "Swipe",
+    "begin": [
+      1156,
+      247,
+      1,
+      1
+    ],
+    "end": [
+      116,
+      266,
+      1,
+      1
+    ],
+    "duration": 200,
+    "next": [
+      "组织识别"
+    ]
+  },
+  "组织识别": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/组织.png",
+    "action": "Click",
+    "next": [
+      "玩法"
+    ]
+  },
+  "玩法": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/玩法.png",
+    "action": "Click",
+    "recommended roi": [
+      88,
+      414,
+      72,
+      49
+    ],
+    "next": [
+      "前往组织祈福"
+    ]
+  },
+  "前往组织祈福": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/前往组织祈福.png",
+    "action": "Click",
+    "recommended roi": [
+      244,
+      575,
+      157,
+      55
+    ],
+    "pre_wait_freezes": 500,
+
+    "next": ["祈福"]
+  },
+  "祈福": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/祈福.png",
+    "action": "Click",
+    "recommended roi" : [549,556,63,52],
+    "pre_delay": 200,
+    "next": [
+      "祈福达上限"
+    ]
+  },
+  "祈福达上限": {
+    "recognition": "OCR",
+    "roi": [
+      505,
+      285,
+      264,
+      65
+    ],
+    "expected": [
+      "今日次数已达上限",
+      "上限",
+      "今日"
+    ],
+    "next": [
+      "确定"
+    ]
+  },
+  "确定": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/次数上限.png",
+    "recommended roi": [
+      536,
+      411,
+      195,
+      72
+    ],
+    "action": "Click",
+
+    "next": ["退出祈福"]
+  },
+  "退出祈福": {
+
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/退出.png",
+    "recommended roi" : [1183,0,79,77],
+
+    "action": "Click",
+
+    "next": [
+    "向左移动"
+
+    ]
+
+  },
+  "向左移动": {
+    "action": "Swipe",
+    "begin" : [217,548,1,1],
+
+    "end" : [143,548,1,1],
+
+    "duration": 100,
+    "next": [
+"追击晓组织",
+      "退出"
+    ]
+
+  },
+  "追击晓组织": {
+
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/红点.png",
+    "roi" : [671,161,107,180],
+    "next": [
+      "进入追击晓组织"
+    ]
+
+
+  },
+  "进入追击晓组织": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/追击晓组织.png",
+    "recommended roi" : [701,178,49,68],
+    "action": "Click",
+
+    "next": ["是否击退目标",
+    "退出"]
+  },
+  "是否击退目标": {
+    "recognition": "OCR",
+    "expected": [
+      "已击退"
+    ],
+    "next": ["奖励"]
+  },
+  "奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/奖励.png",
+    "recommended roi" : [644,617,83,77],
+    "action": "Click",
+    "next": [
+
+      "退出"
+    ]
+  },
+  "退出": {
+
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/退出.png",
+    "recommended roi" : [1183,0,79,77],
+
+    "action": "Click",
+
+    "next": [
+      "回到主场景",
+      "退出"
+
+    ]
+
+  },
+  "回到主场景": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/体力.png",
+    "next": [
+
+    ]
+  }
+}

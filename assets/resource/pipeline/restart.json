@@ -1,0 +1,48 @@
+{
+    "Naruto_search": {
+        "recognition": "TemplateMatch",
+        "template":"../image/restart/game_ico.png",
+        "action": "Click",
+        "next":[
+           "Naruto_start"
+        ],
+        "post_delay": 10000
+
+    },
+    "Naruto_start": {
+        "recognition": "TemplateMatch",
+        "template":"../image/restart/start_game.png",
+        "action": "Click",
+        "next":[
+            "turn_off_occlusions",
+            "login_bonus"
+
+        ]
+
+
+
+    },
+    "check_the_game_lobby": {
+
+
+
+
+},
+    "turn_off_occlusions": {
+        "recognition": "TemplateMatch",
+        "template":"../image/restart/occlusions.png",
+        "action": "Click"
+    },
+    "login_bonus": {
+        "recognition": "TemplateMatch",
+        "template":"../image/restart/login_bouns.png",
+        "action": "Click",
+        "next":[
+            "turn_off_occlusions",
+            "check_the_game_lobby"
+
+        ],
+        "pre_wait_freezes": 200
+
+    }
+}

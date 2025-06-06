@@ -36,8 +36,8 @@
     },
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "重启",
+            "entry": "Naruto_restart"
         },
         {
             "name": "选项任务",
