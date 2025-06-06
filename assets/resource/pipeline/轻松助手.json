@@ -1,0 +1,166 @@
+{
+  "轻松助手识别": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/轻松助手.png",
+    "action": "Click",
+    "next": [
+      "一键审批"
+    ]
+  },
+  "一键审批": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/一键审批.png",
+    "action": "Click",
+    "next": [
+      "丰饶之间关闭自动运行"
+    ]
+  },
+  "丰饶之间关闭自动运行": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/关闭丰饶之间自动运行.png",
+    "action": "Click",
+    "next": [
+      "登录奖励"
+    ]
+  },
+  "登录奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/登录奖励.png",
+    "action": "Click",
+    "next": [
+    ]
+  },
+  "领取登录奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/领取.png",
+    "action": "Click",
+    "roi": [
+      405,
+      540,
+      101,
+      49
+    ],
+    "next": [
+      "领取登录奖励",
+      "轻松特权"
+    ]
+  },
+  "轻松特权": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/轻松特权.png",
+    "action": "Click",
+    "roi": [
+      680,
+      45,
+      156,
+      57
+    ],
+    "next": [
+    ]
+  },
+  "判断秘境是否完成": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/红点.png",
+    "action": "Click",
+    "recommended roi": [
+      924,
+      492,
+      28,
+      32
+    ],
+    "next": [
+      "扫荡秘境",
+      "判断小队冒险是否完成"
+    ]
+  },
+  "扫荡秘境": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/扫荡秘境.png",
+    "action": "Click",
+    "roi": [
+      822,
+      504,
+      118,
+      54
+    ],
+    "next": [
+      "返回"
+    ]
+  },
+  "返回": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/返回.png",
+    "action": "Click",
+    "recommended roi": [
+      35,
+      640,
+      151,
+      69
+    ],
+    "next": [
+      "秘境奖励"
+    ]
+  },
+  "秘境奖励": {
+    "recognition": "ocr",
+    "expected": [
+      "恭喜你获得",
+      "恭",
+      "喜",
+      "你",
+      "获",
+      "得"
+    ],
+    "action": "Click",
+    "roi": [
+      487,
+      134,
+      302,
+      78
+    ],
+    "next": [
+    ]
+  },
+  "判断小队冒险是否完成": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/红点.png",
+    "action": "Click",
+    "roi": [
+      1257,
+      498,
+      15,
+      17
+    ],
+    "next": [
+      "扫荡小队冒险"
+    ]
+  },
+  "扫荡小队冒险": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/扫荡秘境.png",
+    "action": "Click",
+    "roi": [
+      1148,
+      504,
+      115,
+      52
+    ],
+    "next": [
+      "判断小队冒险是否完成",
+      "退出轻松助手"
+    ]
+  },
+  "退出轻松助手": {
+    "recognition": "TemplateMatch",
+    "template": "../image/轻松助手/退出.png",
+    "action": "Click",
+    "recommended roi": [
+      1184,
+      5,
+      90,
+      70
+    ],
+    "next": [
+    ]
+  }
+}
