@@ -6,7 +6,7 @@
         "next":[
            "Naruto_start"
         ],
-        "post_delay": 10000
+        "post_wait_freezes": 10000
 
     },
     "Naruto_start": {
@@ -17,8 +17,8 @@
             "turn_off_occlusions",
             "login_bonus"
 
-        ]
-
+        ],
+        "rate_limit": 3000
 
 
     },
@@ -31,7 +31,12 @@
     "turn_off_occlusions": {
         "recognition": "TemplateMatch",
         "template":"../image/restart/occlusions.png",
-        "action": "Click"
+        "action": "Click",
+        "next": ["login_bonus",
+            "turn_off_occlusions"
+            , "check_the_game_lobby"
+
+        ]
     },
     "login_bonus": {
         "recognition": "TemplateMatch",

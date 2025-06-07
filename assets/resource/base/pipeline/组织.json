@@ -1,5 +1,5 @@
 {
-  "识别主场景": {
+  "识别主场景_组织": {
     "recognition": "TemplateMatch",
     "template": "../image/组织/体力.png",
     "next": [
@@ -88,7 +88,22 @@
     "recommended roi" : [549,556,63,52],
     "pre_delay": 200,
     "next": [
+      "祈福成功",
       "祈福达上限"
+    ]
+  },
+  "祈福成功": {
+    "recognition": "OCR",
+    "roi" : [480,133,308,79],
+    "expected": [
+      "恭喜你获得",
+      "恭喜",
+      "获得"
+    ],
+    "action": "Click",
+    "next": [
+      "昨日奖励",
+      "退出祈福"
     ]
   },
   "祈福达上限": {
@@ -119,7 +134,58 @@
     ],
     "action": "Click",
 
-    "next": ["退出祈福"]
+    "next": ["昨日奖励",
+    "退出祈福"]
+  },
+  "昨日奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/昨日奖励.png",
+    "recommended roi" : [409,163,66,54],
+    "action": "Click",
+    "next": ["领取15人奖励",
+    "领取20人奖励",
+    "领取25人奖励",
+      "退出昨日奖励"]
+  },
+  "领取15人奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/领取昨日奖励.png",
+    "recommended roi" : [756,249,103,49],
+    "action": "Click",
+    "pre_wait_freezes": 200,
+
+    "next": ["领取20人奖励",
+      "领取25人奖励",
+      "退出昨日奖励"
+      ]
+  },
+  "领取20人奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/领取昨日奖励.png",
+    "roi" : [758,401,97,42],
+    "action": "Click",
+    "pre_wait_freezes": 200,
+    "next": [
+      "领取25人奖励",
+      "退出昨日奖励"
+     ]
+  },
+  "领取25人奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/组织/领取昨日奖励.png",
+    "roi" : [758,401,97,42],
+    "pre_wait_freezes": 200,
+    "action": "Click",
+    "next": [
+      "退出昨日奖励"
+      ]
+  },
+  "退出昨日奖励": {
+    "target":[953,212,47,118],
+    "action": "Click",
+    "next": [
+      "退出祈福"
+    ]
   },
   "退出祈福": {
 

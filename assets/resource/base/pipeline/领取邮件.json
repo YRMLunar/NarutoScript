@@ -1,0 +1,41 @@
+{
+  "识别主场景_邮件": {
+    "recognition": "TemplateMatch",
+    "template": "../image/邮件/体力.png",
+    "next": [
+      "识别邮件"
+    ]
+  },
+  "识别邮件": {
+    "recognition": "TemplateMatch",
+    "template": "../image/邮件/邮件.png",
+    "action": "Click",
+    "recommended roi": [
+      30,
+      255,
+      55,
+      41
+    ],
+    "next": [
+      "领取邮件"
+    ]
+  },
+  "领取邮件": {
+    "recognition": "TemplateMatch",
+    "template": "../image/邮件/领取邮件.png",
+    "action": "Click",
+    "recommended roi" : [369,600,157,53],
+    "next": [
+      "退出邮件"
+    ]
+  },
+  "退出邮件": {
+    "recognition": "TemplateMatch",
+    "template": "../image/邮件/退出邮件.png",
+    "action": "Click",
+    "recommended roi" : [1131,80,88,73],
+    "next": [
+
+    ]
+  }
+}

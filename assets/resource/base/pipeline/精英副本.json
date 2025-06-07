@@ -1,0 +1,141 @@
+{
+  "识别主场景_精英副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/体力.png",
+    "next": [
+      "冒险副本"
+    ]
+  },
+  "冒险副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/冒险副本.png",
+    "recommended roi": [
+      1139,
+      561,
+      58,
+      108
+    ],
+    "action": "Click",
+    "next": [
+      "精英副本"
+    ]
+  },
+  "精英副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/精英副本.png",
+    "recommended roi": [
+      194,
+      2,
+      59,
+      141
+    ],
+    "action": "Click",
+    "next": [
+      "便捷扫荡"
+    ]
+  },
+  "便捷扫荡": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/便捷扫荡.png",
+    "recommended roi": [
+      707,
+      667,
+      62,
+      33
+    ],
+    "action": "Click",
+    "next": [
+      "扫荡精英副本"
+    ]
+  },
+  "扫荡精英副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/扫荡.png",
+    "recommended roi": [
+      985,
+      563,
+      105,
+      56
+    ],
+    "action": "Click",
+    "next": [
+      "继续扫荡精英副本",
+      "扫荡结束",
+      "已经扫荡完毕"
+    ]
+  },
+  "已经扫荡完毕": {
+    "recognition": "OCR",
+    "expected": [
+      "勾选的副本都已扫荡完毕",
+      "完毕",
+      "勾选的"
+    ],
+    "recommended roi" : [452,336,385,45],
+    "next": [
+      "退出便捷扫荡"
+    ]
+  },
+  "继续扫荡精英副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/继续扫荡.png",
+    "recommended roi": [
+      439,
+      415,
+      159,
+      62
+    ],
+    "action": "Click",
+    "next": [
+      "扫荡结束"
+    ]
+  },
+  "扫荡结束": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/扫荡结束.png",
+    "recommended roi": [
+      583,
+      416,
+      114,
+      62
+    ],
+    "action": "Click",
+    "next": [
+      "退出副本扫荡界面"
+    ]
+  },
+  "退出副本扫荡界面": {
+    "target": [
+      1060,
+      204,
+      72,
+      155
+    ],
+    "action": "Click",
+    "next": [
+      "退出便捷扫荡"
+    ]
+  },
+  "退出便捷扫荡": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/退出便捷扫荡.png",
+    "recommended roi": [
+      1050,
+      84,
+      83,
+      70
+    ],
+    "action": "Click",
+    "next": [
+      "退出冒险副本"
+    ]
+  },
+  "退出冒险副本": {
+    "recognition": "TemplateMatch",
+    "template": "../image/精英副本/退出冒险副本.png",
+    "recommended roi" : [1176,1,88,70],
+    "action": "Click",
+    "next": [
+    ]
+  }
+}
