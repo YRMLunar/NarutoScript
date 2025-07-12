@@ -1,7 +1,7 @@
 {
-  "识别主场景_邮件": {
+  "识别主场景邮件": {
     "recognition": "TemplateMatch",
-    "template": "../image/邮件/体力.png",
+    "template": "../image/base/体力.png",
     "next": [
       "识别邮件"
     ]

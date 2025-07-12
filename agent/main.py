@@ -5,7 +5,8 @@ from maa.toolkit import Toolkit
 
 import my_action
 import my_reco
-
+import flipping_game_reco
+import flipping_game_action
 
 def main():
     Toolkit.init_option("./")

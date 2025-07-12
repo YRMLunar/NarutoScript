@@ -1,7 +1,7 @@
 {
-  "识别主场景_精英副本": {
+  "识别主场景精英副本": {
     "recognition": "TemplateMatch",
-    "template": "../image/精英副本/体力.png",
+    "template": "../image/base/体力.png",
     "next": [
       "冒险副本"
     ]

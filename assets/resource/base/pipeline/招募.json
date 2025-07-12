@@ -1,0 +1,36 @@
+{
+  "识别主界面招募": {
+    "recognition": "TemplateMatch",
+    "action": "DoNothing",
+    "template": ["../image/base/体力.png"],
+    "next": ["招募按钮"]
+  },
+  "招募按钮": {
+    "recognition": "TemplateMatch",
+    "action": "Click",
+    "template": ["../image/招募/招募按钮.png"],
+    "green_mask": true,
+    "recommended roi": [1182, 102, 84, 96],
+    "next": ["免费招募", "退出"]
+  },
+  "免费招募": {
+    "recognition": "OCR",
+    "action": "click",
+    "expected": ["免费", "免", "费"],
+    "roi" : [814,546,97,39],
+    "next": ["招募确定"]
+  },
+  "招募确定":{
+    "recognition": "OCR",
+    "action": "click",
+    "expected": ["确定"],
+    "recommended roi": [298, 526, 200, 70],
+    "next": ["退出招募"]
+  },
+  "退出招募": {
+    "recognition": "directhit",
+    "action": "click",
+    "target": [1173,3,106,77],
+    "next": []
+  }
+}

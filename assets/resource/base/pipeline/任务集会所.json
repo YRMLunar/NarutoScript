@@ -1,0 +1,35 @@
+{
+  "主界面识别任务集会所":
+  { "recognition": "TemplateMatch",
+    "action": "DoNothing",
+    "template": ["../image/base/体力.png"],
+    "next": ["任务集会所"]
+  },
+  "任务集会所":
+  { "recognition": "TemplateMatch",
+    "action": "click",
+    "template": ["../image/任务集会所/任务集会所.png"],
+    "next": ["领取任务奖励"]
+
+  },
+  "领取任务奖励":
+  { "recognition": "ocr",
+    "action": "click",
+    "expected": ["可领取"],
+    "next": ["领取任务奖励"
+    ,"领取任务"
+    ]
+
+  },
+  "领取任务":
+  { "recognition": "ocr",
+    "action": "click",
+    "expected": ["可领取"],
+    "next": ["领取任务奖励"
+    ,"领取任务"
+    ]
+
+  }
+
+
+}

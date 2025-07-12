@@ -1,7 +1,7 @@
 {
-  "识别主场景_组织": {
+  "识别主场景组织": {
     "recognition": "TemplateMatch",
-    "template": "../image/组织/体力.png",
+    "template": "../image/base/体力.png",
     "next": [
       "左滑"
     ]
@@ -268,7 +268,7 @@
   },
   "回到主场景": {
     "recognition": "TemplateMatch",
-    "template": "../image/组织/体力.png",
+    "template": "../image/base/体力.png",
     "next": [
 
     ]

@@ -1,0 +1,63 @@
+{
+  "启动游戏": {
+    "recognition": "DirectHit",
+    "action": "StartApp",
+    "package": "com.tencent.KiHan",
+    "post_wait_freezes": 10000,
+    "next": [
+      "识别登录界面"
+    ]
+  },
+  "识别登录界面": {
+    "recognition": "TemplateMatch",
+    "template": "../image/restart/静音图标.png",
+    "recommended roi" : [1128,100,80,104],
+    "green_mask": true,
+    "action": "click",
+    "pre_wait_freezes":2000,
+    "next": ["开始游戏"]
+  },
+  "开始游戏": {
+    "recognition": "TemplateMatch",
+    "template": "../image/restart/start_game.png",
+    "roi" : [487,570,296,73],
+    "action": "click",
+    "post_wait_freezes": 5000,
+    "next": [
+      "关闭遮挡物",
+      "领取每日登录奖励"
+    ]
+  },
+  "关闭遮挡物": {
+    "recognition": "TemplateMatch",
+    "template": "../image/base/退出.png",
+    "recommended roi" : [1008,57,100,80],
+    "action": "click",
+    "pre_wait_freezes": {
+      "target": true
+    },
+    "post_wait_freezes": 1000,
+    "green_mask": true,
+    "next": [
+      "关闭遮挡物",
+      "领取每日登录奖励",
+      "识别主界面登录"
+    ]
+  },
+  "领取每日登录奖励": {
+    "recognition": "TemplateMatch",
+    "template": "../image/restart/login_bouns.png",
+    "recommended roi" : [554,570,166,64],
+    "post_wait_freezes": 1000,
+    "action": "click",
+    "next": [
+      "关闭遮挡物"
+    ]
+  },
+  "识别主界面登录": {
+    "recognition": "TemplateMatch",
+    "template": "../image/base/体力.png",
+    "next": [
+    ]
+  }
+}
