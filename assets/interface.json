@@ -1,5 +1,8 @@
 {
-
+    "name": "NarutoScript",
+    "version":  "1.0",
+    "url":  "https://github.com/YRMLunar/NarutoScript.git",
+    "custom_title": "NarutoScript",
     "resource": [
         {
             "name": "官服",
