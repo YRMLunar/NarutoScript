@@ -1,0 +1,37 @@
+{
+    "识别主界面排行榜": {
+      "recognition": "TemplateMatch",
+      "action": "DoNothing",
+      "template": ["../image/base/体力.png"],
+      "next": ["识别排行榜"]
+    },
+
+  "识别排行榜":
+  {"recognition": "ocr",
+    "expected": ["排行榜","排行"],
+    "action": "click",
+    "next": ["是否已赞",
+      "排行榜点赞"]
+  },
+  "是否已赞": {
+    "recognition": "ocr",
+    "expected": [
+      "已赞"
+    ],
+    "next": [
+      "退出排行榜"
+    ]
+  },
+  "排行榜点赞": {
+    "recognition": "ocr",
+    "expected": ["点赞"],
+    "action": "click",
+    "next": ["退出排行榜"]
+},
+  "退出排行榜": {
+    "recognition": "directhit",
+    "action": "click",
+    "target": [1173,3,106,77],
+    "next": []
+  }
+}
