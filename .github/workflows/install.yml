@@ -54,14 +54,33 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        os: [win, osx, linux]
-        arch: [arm64, x64]
+        include:
+          - os: win
+            arch: x64
+          - os: win
+            arch: arm64
+          - os: osx
+            arch: x64
+          - os: osx
+            arch: arm64
+          - os: linux
+            arch: x64
       fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
+
+      # 添加下载MaaFramework的步骤
+      - name: Download MaaFramework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaAssistantArknights/MaaFramework  # 替换为实际的MaaFramework仓库
+          fileName: "MaaFramework-*.zip"
+          latest: true
+          out-file-path: "deps"
+          extract: true
 
       - name: Install
         shell: bash
@@ -102,7 +121,7 @@ jobs:
       - run: |
           cd assets
           for f in *; do
-            (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
+            (cd $f && zip -r ../YourProject-${{ matrix.os }}-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}.zip .)  # 替换为你的项目名
           done
 
       - uses: softprops/action-gh-release@v2
