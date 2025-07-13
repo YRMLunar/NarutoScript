@@ -3,10 +3,10 @@
     "recognition": "TemplateMatch",
     "template": "../image/base/体力.png",
     "next": [
-      "左滑"
+      "左滑组织"
     ]
   },
-  "左滑": {
+  "左滑组织": {
     "action": "Swipe",
     "end": [
       1156,
@@ -23,10 +23,10 @@
     "duration": 200,
     "next": [
       "组织识别",
-      "右滑"
+      "右滑组织"
     ]
   },
-  "右滑": {
+  "右滑组织": {
     "action": "Swipe",
     "begin": [
       1156,

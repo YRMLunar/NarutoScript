@@ -1,0 +1,131 @@
+{
+  "识别主场景丰饶": {
+    "recognition": "TemplateMatch",
+    "action": "DoNothing",
+    "template": [
+      "../image/base/体力.png"
+    ],
+    "next": [
+      "识别丰饶之间",
+      "左滑丰饶"
+
+    ]
+  },
+  "左滑丰饶": {
+    "action": "Swipe",
+    "begin" : [1148,295,1,1],
+    "end" : [146,296,1,1],
+    "next":["识别丰饶之间",
+    "右滑丰饶"]
+  },
+  "右滑丰饶": {
+  "action": "Swipe",
+  "end" : [1148,295,1,1],
+  "begin" : [146,296,1,1],
+    "next":["识别丰饶之间"]
+
+},
+  "识别丰饶之间": {
+    "recognition": "OCR",
+    "action": "Click",
+    "expected": [
+      "丰饶之间",
+      "丰饶"
+    ],
+    "post_wait_freezes": 200,
+    "next": [
+      "是否完成丰饶",
+      "点击战斗丰饶"
+    ]
+  },
+  "是否完成丰饶": {
+
+    "recognition": "OCR",
+    "action": "Click",
+    "expected": [
+      "今日已完成挑战"
+    ],
+    "next": ["退出丰饶之间"]
+  },
+  "点击战斗丰饶": {
+    "recognition": "OCR",
+    "action": "Click",
+    "post_delay": 1000,
+    "expected": [
+      "挑战"
+    ],
+    "next": [
+      "识别战斗状态丰饶"
+    ]
+  },
+  "识别战斗状态丰饶": {
+    "recognition": "OCR",
+    "action": "Click",
+    "expected": [
+      "挑战"
+    ],
+    "next": [
+      "开始战斗丰饶2"
+    ]
+  },
+  "开始战斗丰饶2": {
+    "recognition": "DirectHit",
+    "action": "LongPress",
+    "target": [
+      988,
+      465,
+      60,
+      66
+    ],
+    "duration": 2000,
+    "next": [
+      "识别战斗结束状态丰饶",
+      "开始战斗丰饶1"
+    ]
+  },
+  "开始战斗丰饶1": {
+    "recognition": "DirectHit",
+    "action": "LongPress",
+    "target": [
+      974,
+      609,
+      58,
+      65
+    ],
+    "duration": 1000,
+    "next": [
+      "识别战斗结束状态丰饶",
+      "开始战斗丰饶0"
+    ]
+  },
+  "开始战斗丰饶0": {
+    "recognition": "DirectHit",
+    "action": "LongPress",
+    "target": [
+      1097,
+      553,
+      90,
+      89
+    ],
+    "duration": 5000,
+    "next": [
+      "识别战斗结束状态丰饶",
+      "开始战斗丰饶2"
+    ]
+  },
+  "识别战斗结束状态丰饶": {
+    "recognition": "OCR",
+    "expected": ["奖励"],
+    "action": "Click",
+    "next": []
+  },
+  "退出丰饶之间": {
+
+    "recognition": "TemplateMatch",
+    "action": "click",
+    "green_mask": true,
+    "template": [
+      "../image/base/退出.png"
+    ]
+  }
+}
