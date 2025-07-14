@@ -15,6 +15,7 @@
     "action": "Swipe",
     "begin" : [1148,295,1,1],
     "end" : [146,296,1,1],
+    "post_wait_freezes": 200,
     "next":["识别丰饶之间",
     "右滑丰饶"]
   },
@@ -22,12 +23,14 @@
   "action": "Swipe",
   "end" : [1148,295,1,1],
   "begin" : [146,296,1,1],
+    "post_wait_freezes": 200,
     "next":["识别丰饶之间"]
 
 },
   "识别丰饶之间": {
     "recognition": "OCR",
     "action": "Click",
+
     "expected": [
       "丰饶之间",
       "丰饶"
@@ -117,8 +120,18 @@
     "recognition": "OCR",
     "expected": ["奖励"],
     "action": "Click",
-    "next": []
+    "next": ["战斗结束关闭丰饶"]
   },
+  "战斗结束关闭丰饶": {
+    "recognition": "OCR",
+    "expected": ["点击任意位置关闭界面"],
+    "action": "Click",
+    "next": ["退出丰饶之间"]
+
+
+  },
+
+
   "退出丰饶之间": {
 
     "recognition": "TemplateMatch",
