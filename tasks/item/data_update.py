@@ -1,13 +1,8 @@
 import re
 
+from module.base.base import ModuleBase
 from module.base.timer import Timer
 from module.logger import logger
-from module.ocr.ocr import Digit, DigitCounter
-from tasks.base.page import page_item
-from tasks.item.assets.assets_item_data import OCR_DATA, OCR_RELIC
-from tasks.item.keywords import KEYWORDS_ITEM_TAB
-from tasks.item.ui import ItemUI
-from tasks.planner.model import PlannerMixin
 
 
 
@@ -15,7 +10,13 @@ from tasks.planner.model import PlannerMixin
 
 
 
-class DataUpdate(ItemUI, PlannerMixin):
+
+
+
+
+
+
+class DataUpdate(ModuleBase):
     def _get_data(self):
         """
         Page:
