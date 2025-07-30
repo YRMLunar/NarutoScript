@@ -1,8 +1,10 @@
 from module.base.base import ModuleBase
 from module.logger import logger
-from tasks.freebies.code import RedemptionCode
+from tasks.freebies.dailyshare import DailyShare
+from tasks.freebies.friendgifts import FriendGifts
+
 from tasks.freebies.mail import MailReward
-from tasks.freebies.support_reward import SupportReward
+
 
 
 class Freebies(ModuleBase):
@@ -10,17 +12,17 @@ class Freebies(ModuleBase):
         """
         Run all freebie tasks
         """
-        if self.config.Freebies_SupportReward:
-            logger.hr('Support Reward', level=1)
-            SupportReward(config=self.config, device=self.device).run()
-
-        if self.config.Freebies_RedemptionCode:
-            logger.hr('Redemption Code', level=1)
-            RedemptionCode(config=self.config, device=self.device).run()
-
+        if self.config.Freebies_DailyShare:
+            logger.hr('Daily Share', level=1)
+            DailyShare(config=self.config, device=self.device).handle_daily_share()
+        print(self.config.Freebies_DailyShare)
+        if self.config.Freebies_FriendGifts:
+            logger.hr('Friend Gifts', level=1)
+            FriendGifts(config=self.config, device=self.device).handle_friend_gifts()
+        print(self.config.Freebies_FriendGifts)
         # To actually get RedemptionCode rewards, you need to receive the mail
-        if self.config.Freebies_RedemptionCode or self.config.Freebies_MailReward:
+        if  self.config.Freebies_MailReward:
             logger.hr('Mail Reward', level=1)
-            MailReward(config=self.config, device=self.device).mail_claim_all()
+            MailReward(config=self.config, device=self.device).handle_mail_reward()
 
         self.config.task_delay(server_update=True)

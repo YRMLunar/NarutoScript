@@ -22,59 +22,23 @@ Daily:
   menu: 'list'
   page: 'setting'
   tasks:
-    Dungeon:
+    Mission:
       - Scheduler
-      - Planner
-      - PlannerTarget
-      - Dungeon
-      - DungeonSupport
-      - DungeonStorage
-      - TrailblazePower
-    Ornament:
-      - Scheduler
-      - Ornament
-      - DungeonSupport
-      - TrailblazePower
-    DailyQuest:
-      - Scheduler
-      - DailyStorage
-    BattlePass:
-      - Scheduler
-      - BattlePassStorage
-    Assignment:
-      - Scheduler
-      - Assignment
-    DataUpdate:
-      - Scheduler
-      - ItemStorage
-      - CloudStorage
     Freebies:
       - Scheduler
       - Freebies
+    ZhaoCai:
+      - Scheduler
+      - ZhaoCai
+    Organization:
+      - Scheduler
+      - Organization
 
 # ==================== Weekly ====================
 
-Weekly:
-  menu: 'list'
-  page: 'setting'
-  tasks:
-    Weekly:
-      - Scheduler
-      - Weekly
-      - DungeonSupport
-    Rogue:
-      - Scheduler
-      - RogueWorld
-      - RogueBlessing
-      - RogueDebug
+
 
 # ==================== Tool ====================
 
-Tool:
-  menu: 'list'
-  page: 'tool'
-  tasks:
-    Daemon:
-      - Daemon
-    PlannerScan:
-      - PlannerScan
+
+
