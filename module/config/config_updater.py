@@ -142,6 +142,9 @@ class ConfigGenerator:
             task = path[2]
             # Add storage to all task
             # groups.append('Storage')
+            if deep_get(data, keys=f'{task}.Scheduler.Command'):
+                deep_set(data, keys=f'{task}.Scheduler.Command.value', value=task)  # 设置为 'DataUpdate'
+                deep_set(data, keys=f'{task}.Scheduler.Command.display', value='hide')
             for group in groups:
                 if group not in self.argument:
                     print(f'`{task}.{group}` is not related to any argument group')

@@ -33,6 +33,9 @@ Daily:
     Organization:
       - Scheduler
       - Organization
+    DataUpdate:
+      - Scheduler
+      - ItemStorage
 
 # ==================== Weekly ====================
 

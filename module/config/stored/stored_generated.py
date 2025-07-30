@@ -34,4 +34,5 @@ from module.config.stored.classes import (
 # ``` python -m module/config/config_updater.py ```
 
 class StoredGenerated:
-    pass
+    Credit = StoredInt("DataUpdate.ItemStorage.Credit")
+    StallerJade = StoredInt("DataUpdate.ItemStorage.StallerJade")

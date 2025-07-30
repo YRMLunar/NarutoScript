@@ -51,3 +51,7 @@ class GeneratedConfig:
 
     # Group `Organization`
     Organization_OrganizationPray = True
+
+    # Group `ItemStorage`
+    ItemStorage_Credit = {}
+    ItemStorage_StallerJade = {}

@@ -110,17 +110,17 @@ Organization:
     type: checkbox
     value:  true
 
-#ItemStorage:
-#  Credit:
-#    stored: StoredInt
-#    order: 7
-#    color: "#ab7cf2"
-#    display: display
-#  StallerJade:
-#    stored: StoredInt
-#    order: 8
-#    color: "#fc8f8b"
-#    display: display
+ItemStorage:
+  Credit:
+    stored: StoredInt
+    order: 7
+    color: "#ab7cf2"
+    display: display
+  StallerJade:
+    stored: StoredInt
+    order: 8
+    color: "#fc8f8b"
+    display: display
 
 
 # ==================== Rogue ====================

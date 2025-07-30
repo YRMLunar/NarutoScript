@@ -33,6 +33,10 @@
     "Organization": {
       "name": "组织活动",
       "help": ""
+    },
+    "DataUpdate": {
+      "name": "Task.DataUpdate.name",
+      "help": "Task.DataUpdate.help"
     }
   },
   "Scheduler": {
@@ -236,6 +240,20 @@
     "OrganizationPray": {
       "name": "Organization.OrganizationPray.name",
       "help": "Organization.OrganizationPray.help"
+    }
+  },
+  "ItemStorage": {
+    "_info": {
+      "name": "ItemStorage._info.name",
+      "help": "ItemStorage._info.help"
+    },
+    "Credit": {
+      "name": "ItemStorage.Credit.name",
+      "help": "ItemStorage.Credit.help"
+    },
+    "StallerJade": {
+      "name": "ItemStorage.StallerJade.name",
+      "help": "ItemStorage.StallerJade.help"
     }
   },
   "Gui": {
