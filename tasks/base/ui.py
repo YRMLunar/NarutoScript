@@ -4,19 +4,11 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError, HandledError
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW, ROGUE_LEAVE_FOR_NOW_OE
-from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_CHARACTER, MAP_EXIT, MAP_EXIT_OE
-from tasks.base.assets.assets_base_popup import POPUP_STORY_LATER
 from tasks.base.main_page import MainPage
-from tasks.base.page import Page, page_gacha, page_main
-from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
-from tasks.combat.assets.assets_combat_interact import MAP_LOADING
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import EFFECT_NOTIFICATION
-from tasks.login.assets.assets_login import LOGIN_CONFIRM
-from tasks.map.assets.assets_map_control import RUN_BUTTON
-
+from tasks.base.page import Page, page_main
+from tasks.login.assets.assets_login import ACCOUNT_CONFIRM
+from tasks.page.assets.assets_page import MAIN_GOTO_CHARACTER
+from tasks.login.assets import *
 
 class UI(MainPage):
     ui_current: Page
@@ -66,7 +58,7 @@ class UI(MainPage):
                 from tasks.login.login import Login
                 login = Login(config=self.config, device=self.device)
                 self.device.dump_hierarchy()
-                login.cloud_try_enter_game()
+                login.app_start()
 
         timeout = Timer(10, count=20).start()
         while 1:
@@ -95,18 +87,10 @@ class UI(MainPage):
             if self.ui_additional():
                 timeout.reset()
                 continue
-            if self.handle_popup_single():
-                timeout.reset()
-                continue
-            if self.handle_popup_confirm():
-                timeout.reset()
-                continue
+
             if self.handle_login_confirm():
                 continue
-            if self.appear(MAP_LOADING, similarity=0.75, interval=2):
-                logger.info('Map loading')
-                timeout.reset()
-                continue
+
 
             app_check()
             minicap_check()
@@ -169,10 +153,7 @@ class UI(MainPage):
             # Additional
             if self.ui_additional():
                 continue
-            if self.handle_popup_single():
-                continue
-            if self.handle_popup_confirm():
-                continue
+
             if self.handle_login_confirm():
                 continue
 
@@ -192,7 +173,7 @@ class UI(MainPage):
         logger.hr("UI ensure")
         self.ui_get_current_page(skip_first_screenshot=skip_first_screenshot)
 
-        self.ui_leave_special()
+        # self.ui_leave_special()
 
         if acquire_lang_checked:
             if self.acquire_lang_checked():
@@ -321,10 +302,7 @@ class UI(MainPage):
         if MAIN_GOTO_CHARACTER.match_template_luma(self.device.image):
             if self.image_color_count(MAIN_GOTO_CHARACTER, color=(235, 235, 235), threshold=234, count=400):
                 appear = True
-        if not appear:
-            if MAP_EXIT.match_template_luma(self.device.image):
-                if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
-                    appear = True
+
 
         if appear and interval:
             self.interval_reset(MAIN_GOTO_CHARACTER, interval=interval)
@@ -332,36 +310,20 @@ class UI(MainPage):
         return appear
 
     def is_in_login_confirm(self, interval=0):
-        self.device.stuck_record_add(LOGIN_CONFIRM)
+        self.device.stuck_record_add(ACCOUNT_CONFIRM)
 
-        if interval and not self.interval_is_reached(LOGIN_CONFIRM, interval=interval):
+        if interval and not self.interval_is_reached(ACCOUNT_CONFIRM, interval=interval):
             return False
 
-        appear = LOGIN_CONFIRM.match_template_luma(self.device.image)
+        appear = ACCOUNT_CONFIRM.match_template_luma(self.device.image)
 
         if appear and interval:
-            self.interval_reset(LOGIN_CONFIRM, interval=interval)
+            self.interval_reset(ACCOUNT_CONFIRM, interval=interval)
 
         return appear
 
     def is_in_map_exit(self, interval=0):
-        self.device.stuck_record_add(MAP_EXIT)
-
-        if interval and not self.interval_is_reached(MAP_EXIT, interval=interval):
-            return False
-
-        appear = False
-        if MAP_EXIT.match_template_luma(self.device.image):
-            if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
-                appear = True
-        if MAP_EXIT_OE.match_template_luma(self.device.image):
-            if self.image_color_count(MAP_EXIT_OE, color=(235, 235, 235), threshold=221, count=50):
-                appear = True
-
-        if appear and interval:
-            self.interval_reset(MAP_EXIT, interval=interval)
-
-        return appear
+        return True
 
     def handle_login_confirm(self):
         """
@@ -384,23 +346,7 @@ class UI(MainPage):
         Returns:
             If handled any popup.
         """
-        if self.handle_reward():
-            return True
-        if self.handle_battle_pass_notification():
-            return True
-        if self.handle_monthly_card_reward():
-            return True
-        if self.handle_get_light_cone():
-            return True
-        if self.handle_ui_close(COMBAT_PREPARE, interval=5):
-            return True
-        if self.appear_then_click(COMBAT_EXIT, interval=5):
-            return True
-        if self.appear_then_click(INFO_CLOSE, interval=5):
-            return True
-        # Popup story that advice you watch it, but no, later
-        if self.appear_then_click(POPUP_STORY_LATER, interval=5):
-            return True
+
 
         return False
 
@@ -482,27 +428,6 @@ class UI(MainPage):
                 if self.is_in_main():
                     logger.info(f'Leave to {page_main}')
                     break
+            if 1:
+                clicked = True
 
-            if self.is_in_map_exit(interval=2):
-                self.device.click(MAP_EXIT)
-                continue
-            if self.handle_popup_confirm():
-                clicked = True
-                continue
-            if self.match_template_color(START_TRIAL, interval=2):
-                logger.info(f'{START_TRIAL} -> {CLOSE}')
-                self.device.click(CLOSE)
-                clicked = True
-                continue
-            if self.handle_ui_close(page_gacha.check_button, interval=2):
-                continue
-            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
-                clicked = True
-                continue
-            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW_OE, interval=2):
-                clicked = True
-                continue
-            if self.appear(EFFECT_NOTIFICATION, interval=2):
-                logger.info(f'{EFFECT_NOTIFICATION} -> {RUN_BUTTON}')
-                self.device.click(RUN_BUTTON)
-                continue

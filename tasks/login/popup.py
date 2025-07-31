@@ -2,7 +2,7 @@ from module.base.base import ModuleBase
 from module.base.timer import Timer
 from tasks.base.page import page_main
 from tasks.base.ui import UI
-from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
+
 from tasks.login.assets.assets_login_popup import GAME_MAIN_ANNOUNCEMENT, GAME_IN_ADVERTISE, Daily_Bonus, RANK_UP
 
 
@@ -13,7 +13,7 @@ class GameInPopup(ModuleBase):
             bool: If clicked
         """
         # CN user agreement popup
-        timer=Timer(4,count=2)
+        timer=Timer(4,count=8)
         for _ in  self.loop():
             if self.appear_then_click(GAME_MAIN_ANNOUNCEMENT):
                 timer.reset()

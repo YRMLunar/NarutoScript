@@ -2,11 +2,11 @@ from module.base.base import ModuleBase
 from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
-from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
+
 from tasks.base.page import page_main
 from tasks.base.ui import UI
 from tasks.login.assets.assets_login import *
-from tasks.login.assets.assets_login_popup import GAME_MAIN_ANNOUNCEMENT
+
 from tasks.login.popup import GameInPopup
 
 

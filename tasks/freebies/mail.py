@@ -2,7 +2,7 @@ from module.base import button
 from module.base.timer import Timer
 from module.exception import GameStuckError
 from module.logger import logger
-from tasks.base.assets.assets_base_page import MAIN_GOTO_MAIL, MAIN_GOTO_CHARACTER
+
 from tasks.base.page import  page_main, page_mail
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_mail import *
@@ -16,19 +16,15 @@ class MailReward(UI):
             out: MAIL_CHECK
         """
         logger.info('Mail enter')
-
         time=Timer(4,count=8).start()
         for _ in self.loop():
             if self.appear(MAIL_CHECK):
                 logger.info('Mail enter success')
                 break
-
-            if self.appear_then_click(MAIN_GOTO_MAIL,interval=2):
-                continue
             if time.reached():
                 raise GameStuckError("Mail enter failed")
-
-
+            if self.appear_then_click(MAIL_RED_DOT,interval=2):
+                continue
 
     def _mail_exit(self):
         """
@@ -90,19 +86,17 @@ class MailReward(UI):
             out: page_menu
         """
 
-
+        self.ui_ensure(page_main)
 
         #MAIL_RED_DOT
-        if not self.appear(MAIL_RED_DOT):
-            logger.info("NOT FOUND MAIL_RED_DOT")
+        if self.appear(MAIL_RED_DOT):
+            # claim all
+            self._mail_enter()
+            self._mail_claim()
+            self._mail_exit()
+        else:
+            logger.info('Mail Not Found Red Dot')
             return False
-
-
-        # claim all
-        self._mail_enter()
-
-        self._mail_claim()
-        self._mail_exit()
 
 
     def _mail_delete(self):
@@ -116,7 +110,7 @@ class MailReward(UI):
                 break
 
 az=MailReward('alas',task='Alas')
-az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\freebies\1.png'
+az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\freebies\MuMu12-20250731-132002.png'
 #print(az.ui_page_appear(page_mail))
 # print(az.appear(MAIL_RED_DOT))
 # print(az.appear(MAIN_GOTO_MAIL))

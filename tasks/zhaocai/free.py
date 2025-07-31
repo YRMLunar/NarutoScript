@@ -25,4 +25,5 @@ class ZhaoCaiFree(UI):
             if time.reached():
                 logger.warning("ZhaoCai timeout")
                 raise GameStuckError("ZhaoCai timeout after 20 seconds")
-
+az=ZhaoCaiFree('alas',task='Alas')
+az.handle_zhao_Cai()

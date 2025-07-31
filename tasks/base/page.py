@@ -1,6 +1,12 @@
 import traceback
 
-from tasks.base.assets.assets_base_page import *
+
+from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, MISSION_EXIT
+from tasks.page.assets.assets_page import MAIN_GOTO_CHARACTER
+from tasks.freebies.assets.assets_freebies_mail import *
+from tasks.freebies.assets.assets_freebies_dailyshare import *
+from tasks.freebies.assets.assets_freebies_friendgifts import *
+from tasks.zhaocai.assets.assets_zhaocai import ZHAO_CAI_CHECK, MAIN_GOTO_ZHAO_CAI, ZHAO_CAI_GOTO_MAIN
 
 
 class Page:
@@ -67,5 +73,30 @@ class Page:
     def link(self, button, destination):
         self.links[destination] = button
 
+#Main_Page
+page_main=Page(MAIN_GOTO_CHARACTER)
+
+#Mail
+page_mail=Page(MAIL_CHECK)
+page_mail.link(MAIL_EXIT,destination=page_main)
+page_main.link(MAIN_GOTO_MAIL,destination=page_mail)
+#Mission
+page_mission=Page(MISSION_CHECK)
+page_main.link(MISSION_RED_DOT,destination=page_mission)
+page_mission.link(MISSION_EXIT,destination=page_main)
+#DailyShare
+page_panel=Page(PANEL_CHECK)
+page_main.link(MAIN_GOTO_PANEL,destination=page_panel)
+page_panel.link(PANEL_GOTO_MAIN,destination=page_main)
+#Friend_Gifts
+page_friend_panel=Page(FRIEND_PANEL_CHECK)
+page_gifts_claim=Page(GIFTS_CLAIM_CHECK)
+page_main.link(MAIN_GOTO_FRIEND_PANEL,destination=page_friend_panel)
+page_friend_panel.link(FRIEND_PANEL_GOTO_MAIN,destination=page_main)
+page_gifts_claim.link(GIFTS_CLAIM_CONFIRM,destination=page_friend_panel)
+#Zhao_Cai
+page_zhaocai=Page(ZHAO_CAI_CHECK)
+page_main.link(MAIN_GOTO_ZHAO_CAI,destination=page_zhaocai)
+page_zhaocai.link(ZHAO_CAI_GOTO_MAIN,destination=page_main)
 
 

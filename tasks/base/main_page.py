@@ -5,10 +5,10 @@ from module.config.server import VALID_LANG
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
 from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
-from tasks.base.assets.assets_base_main_page import OCR_MAP_NAME
+
 from tasks.base.page import Page, page_main
 from tasks.base.popup import PopupHandler
-from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
+
 
 
 
@@ -16,10 +16,9 @@ from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
 class MainPage(PopupHandler):
     # Same as BigmapPlane class
     # Current plane
-    plane: MapPlane = KEYWORDS_MAP_PLANE.Herta_ParlorCar
+
     _lang_checked = False
     _lang_check_success = True
-
 
 
     def check_lang_from_map_plane(self) -> str | None:
@@ -67,7 +66,7 @@ class MainPage(PopupHandler):
         if page != page_main:
             return False
 
-        self.check_lang_from_map_plane()
+        # self.check_lang_from_map_plane()
         return True
 
     def acquire_lang_checked(self):

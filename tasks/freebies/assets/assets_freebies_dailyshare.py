@@ -36,6 +36,17 @@ PANEL_GOTO_MAIN = ButtonWrapper(
     ),
     en=None,
 )
+QQ_GOTO_MAIN = ButtonWrapper(
+    name='QQ_GOTO_MAIN',
+    cn=Button(
+        file='./assets/cn/freebies/dailyshare/QQ_GOTO_MAIN.png',
+        area=(696, 531, 929, 658),
+        search=(676, 511, 949, 678),
+        color=(155, 174, 113),
+        button=(696, 531, 929, 658),
+    ),
+    en=None,
+)
 SHARE_BUTTON = ButtonWrapper(
     name='SHARE_BUTTON',
     cn=Button(
