@@ -35,12 +35,12 @@
       "help": ""
     },
     "DailyReward": {
-      "name": "Task.DailyReward.name",
-      "help": "Task.DailyReward.help"
+      "name": "活跃度奖励",
+      "help": ""
     },
     "DataUpdate": {
-      "name": "Task.DataUpdate.name",
-      "help": "Task.DataUpdate.help"
+      "name": "数据更新",
+      "help": ""
     }
   },
   "Scheduler": {
