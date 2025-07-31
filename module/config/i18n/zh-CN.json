@@ -233,8 +233,8 @@
       "help": ""
     },
     "OrganizationPray": {
-      "name": "Organization.OrganizationPray.name",
-      "help": "Organization.OrganizationPray.help"
+      "name": "组织祈福",
+      "help": ""
     }
   },
   "ItemStorage": {

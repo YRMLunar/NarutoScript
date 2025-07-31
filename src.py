@@ -41,7 +41,9 @@ class StarRailCopilot(AzurLaneAutoScript):
         from tasks.freebies.freebies import Freebies
         Freebies(config=self.config, device=self.device).run()
 
-
+    def organiztion(self):
+        from tasks.organization.organization import Organization
+        Organization(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':
