@@ -44,6 +44,9 @@ class StarRailCopilot(AzurLaneAutoScript):
     def organiztion(self):
         from tasks.organization.organization import Organization
         Organization(config=self.config, device=self.device).run()
+    def daily_reward(self):
+        from tasks.daily.daily import Daily_Reward
+        Daily_Reward(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

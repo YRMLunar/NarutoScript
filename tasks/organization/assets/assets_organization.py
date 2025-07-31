@@ -129,6 +129,17 @@ ORGANIZATION_XIAO = ButtonWrapper(
     ),
     en=None,
 )
+PRAY_BOX_CLAIM_15 = ButtonWrapper(
+    name='PRAY_BOX_CLAIM_15',
+    cn=Button(
+        file='./assets/cn/organization/PRAY_BOX_CLAIM_15.png',
+        area=(1153, 371, 1240, 450),
+        search=(1133, 351, 1260, 470),
+        color=(106, 78, 51),
+        button=(1153, 371, 1240, 450),
+    ),
+    en=None,
+)
 PRAY_BUTTON = ButtonWrapper(
     name='PRAY_BUTTON',
     cn=Button(

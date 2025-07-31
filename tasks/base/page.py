@@ -1,6 +1,7 @@
 import traceback
 
-
+from tasks.daily.assets.assets_daily import DAILY_CHECK, MAIN_GOTO_DAILY, DAILY_EXIT, WEEKLY_CLAIM, WEEKlY_BUTTON, \
+    WEEKLY_CHECK, WEEKLY_EXIT
 from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, MISSION_EXIT
 from tasks.organization.assets.assets_organization import ORGANIZATION_PANEL, ORGANIZATION, ORGANIZATION_PRAY_CHECK, \
     PRAY_EXIT, ORGANIZATION_EXIT
@@ -106,4 +107,13 @@ page_organization=Page(ORGANIZATION)
 page_pray=Page(ORGANIZATION_PRAY_CHECK)
 page_pray.link(PRAY_EXIT,destination=page_organization)
 page_organization.link(ORGANIZATION_EXIT,destination=page_main)
+#DailyReward
+page_daily=Page(DAILY_CHECK)
+page_main.link(MAIN_GOTO_DAILY,destination=page_daily)
+page_daily.link(DAILY_EXIT,destination=page_main)
+page_weekly=Page(WEEKLY_CHECK)
+page_daily.link(WEEKlY_BUTTON,destination=page_weekly)
+page_weekly.link(WEEKLY_EXIT,destination=page_daily)
+
+
 

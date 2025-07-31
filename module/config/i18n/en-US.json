@@ -34,6 +34,10 @@
       "name": "Task.Organization.name",
       "help": "Task.Organization.help"
     },
+    "DailyReward": {
+      "name": "Task.DailyReward.name",
+      "help": "Task.DailyReward.help"
+    },
     "DataUpdate": {
       "name": "Task.DataUpdate.name",
       "help": "Task.DataUpdate.help"
@@ -235,6 +239,20 @@
     "OrganizationPray": {
       "name": "Organization.OrganizationPray.name",
       "help": "Organization.OrganizationPray.help"
+    }
+  },
+  "DailyReward": {
+    "_info": {
+      "name": "DailyReward._info.name",
+      "help": "DailyReward._info.help"
+    },
+    "Daily": {
+      "name": "DailyReward.Daily.name",
+      "help": "DailyReward.Daily.help"
+    },
+    "Weekly": {
+      "name": "DailyReward.Weekly.name",
+      "help": "DailyReward.Weekly.help"
     }
   },
   "ItemStorage": {

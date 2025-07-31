@@ -5,13 +5,66 @@ from module.base.utils import color_similarity_2d
 from module.logger import logger
 # from tasks.base.assets.assets_base_page import BACK, CLOSE
 from tasks.base.assets.assets_base_popup import *
-
+import cv2
+import numpy as np
 
 class PopupHandler(ModuleBase):
-    pass
+    def reward_appear(self) -> bool:
+        buttons = GET_REWARD.data_buttons['share']
+        for button in buttons:
+            print(button)
 
+            image = self.image_crop(button.search, copy=False)
+            image = color_similarity_2d(image, color=(203, 181, 132))
 
+            # 确保输入图像格式正确
+            if len(image.shape) == 3:
+                image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            image = image.astype(np.uint8)
 
+            # 确保模板图像也是正确格式
+            template = button.image
+            if len(template.shape) == 3:
+                template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+            template = template.astype(np.uint8)
+
+            # 直接进行模板匹配，绕过button.match_template()
+            res = cv2.matchTemplate(template, image, cv2.TM_CCOEFF_NORMED)
+            _, sim, _, point = cv2.minMaxLoc(res)
+
+            if sim > 0.85:
+                button._button_offset = np.array(point) + button.search[:2] - button.area[:2]
+                return True
+        return False
+    def handle_reward(self, interval=5, click_button: ButtonWrapper = None) -> bool:
+            """
+            Args:
+                interval:
+                click_button: Set a button to click
+
+            Returns:
+                If handled.
+            """
+        # Same as ModuleBase.match_template()
+            self.device.stuck_record_add(GET_REWARD)
+
+            if interval and not self.interval_is_reached(GET_REWARD, interval=interval):
+                return False
+
+            appear = self.reward_appear()
+
+            if click_button is None:
+                if appear:
+                    self.device.click(GET_REWARD)
+            else:
+                if appear:
+                    logger.info(f'{GET_REWARD} -> {click_button}')
+                    self.device.click(click_button)
+
+            if appear and interval:
+                self.interval_reset(GET_REWARD, interval=interval)
+
+            return appear
     # def handle_ui_close(self, appear_button: ButtonWrapper | Callable, interval=2) -> bool:
     #     """
     #     Args:

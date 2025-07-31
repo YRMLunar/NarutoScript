@@ -13,7 +13,7 @@ class GeneratedConfig:
     Scheduler_Enable = False  # True, False
     Scheduler_NextRun = datetime.datetime(2020, 1, 1, 0, 0)
     Scheduler_Command = 'Alas'
-    Scheduler_ServerUpdate = '04:00'
+    Scheduler_ServerUpdate = '05:00'
 
     # Group `Emulator`
     Emulator_Serial = 'auto'
@@ -51,6 +51,10 @@ class GeneratedConfig:
 
     # Group `Organization`
     Organization_OrganizationPray = True
+
+    # Group `DailyReward`
+    DailyReward_Daily = True
+    DailyReward_Weekly = True
 
     # Group `ItemStorage`
     ItemStorage_Credit = {}

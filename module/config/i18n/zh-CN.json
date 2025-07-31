@@ -34,6 +34,10 @@
       "name": "组织活动",
       "help": ""
     },
+    "DailyReward": {
+      "name": "Task.DailyReward.name",
+      "help": "Task.DailyReward.help"
+    },
     "DataUpdate": {
       "name": "Task.DataUpdate.name",
       "help": "Task.DataUpdate.help"
@@ -234,6 +238,20 @@
     },
     "OrganizationPray": {
       "name": "组织祈福",
+      "help": ""
+    }
+  },
+  "DailyReward": {
+    "_info": {
+      "name": "活跃度奖励",
+      "help": ""
+    },
+    "Daily": {
+      "name": "日常奖励",
+      "help": ""
+    },
+    "Weekly": {
+      "name": "周常奖励",
       "help": ""
     }
   },

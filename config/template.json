@@ -32,7 +32,7 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Restart",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     }
   },
   "Mission": {
@@ -40,7 +40,7 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Mission",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     }
   },
   "Freebies": {
@@ -48,7 +48,7 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Freebies",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     },
     "Freebies": {
       "FriendGifts": true,
@@ -61,7 +61,7 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "ZhaoCai",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     },
     "ZhaoCai": {
       "ZhaoCaiFree": true
@@ -72,7 +72,18 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Organization",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
+    },
+    "Organization": {
+      "OrganizationPray": true
+    }
+  },
+  "DailyReward": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "DailyReward",
+      "ServerUpdate": "05:00"
     },
     "Organization": {
       "OrganizationPray": true
@@ -83,7 +94,7 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "DataUpdate",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     },
     "ItemStorage": {
       "Credit": {},

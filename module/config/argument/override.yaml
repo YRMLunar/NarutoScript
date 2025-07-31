@@ -18,7 +18,8 @@ Restart:
       value: true
       option: [ true, ]
       option_bold: [ true, ]
-    ServerUpdate: 04:00
+    ServerUpdate: 05:00
+
 
 # ==================== Daily ====================
 

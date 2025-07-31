@@ -15,6 +15,7 @@ class ManualConfig:
     > ZhaoCai
     >Organization
     >Mission
+    >DailyReward
     >DataUpdate
     """
 

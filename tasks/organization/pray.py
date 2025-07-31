@@ -1,10 +1,12 @@
+from module.base import button
 from module.base.timer import Timer
+from module.base.utils import color_similarity_2d
 from module.exception import GameStuckError
 from tasks.base.page import page_main
 from tasks.base.ui import UI
 from tasks.organization.assets.assets_organization import ORGANIZATION_RED_DOT, MAIN_GOTO_ORGANIZATION, \
     ORGANIZATION_PANEL, ORGANIZATION_PLAY_PANEL, ORGANIZATION_GOTO_PRAY, \
-    PRAY_BUTTON, PRAY_SUCCESS, PRAY_HAVE_DONE, ORGANIZATION_PRAY_CHECK
+    PRAY_BUTTON, PRAY_SUCCESS, PRAY_HAVE_DONE, ORGANIZATION_PRAY_CHECK, PRAY_BOX_CLAIM_15
 from module.logger import  logger
 
 class Pray(UI):
@@ -13,6 +15,7 @@ class Pray(UI):
         self._organization_panel_enter()
         self._enter_pray_panel()
         self.pray()
+        self.pray_box_claim()
         self.ui_goto_main()
     def _organization_panel_enter(self):
         self.device.swipe([0, 322], [1280, 314])
@@ -68,10 +71,14 @@ class Pray(UI):
             if time.reached():
                 raise GameStuckError("Organization Pray Stucked")
 
-
+    def pray_box_claim(self):
+        time=Timer(5, count=10).start()
+        self.device.screenshot()
+        print(self.match_template_luma(button=PRAY_BOX_CLAIM_15,similarity=0.99))
 
 
 
 
 az = Pray('alas', task='Alas')
-az.handle_Organization_Pray()
+az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\daily\MuMu12-20250731-190706.png'
+az.reward_appear()

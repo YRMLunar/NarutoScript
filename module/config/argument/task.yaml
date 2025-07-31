@@ -33,9 +33,13 @@ Daily:
     Organization:
       - Scheduler
       - Organization
+    DailyReward:
+      - Scheduler
+      - Organization
     DataUpdate:
       - Scheduler
       - ItemStorage
+
 
 # ==================== Weekly ====================
 
