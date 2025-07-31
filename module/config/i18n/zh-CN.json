@@ -82,12 +82,7 @@
       "name": "游戏服务器",
       "help": "无法区分国际服的不同地区，请手动选择服务器",
       "auto": "自动检测",
-      "CN-Official": "[国服]-官服",
-      "CN-Bilibili": "CN-Bilibili",
-      "OVERSEA-America": "OVERSEA-America",
-      "OVERSEA-Asia": "OVERSEA-Asia",
-      "OVERSEA-Europe": "OVERSEA-Europe",
-      "OVERSEA-TWHKMO": "OVERSEA-TWHKMO"
+      "CN-Official": "[国服]-官服"
     },
     "GameLanguage": {
       "name": "游戏内文本语言",

@@ -2,6 +2,8 @@ import traceback
 
 
 from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, MISSION_EXIT
+from tasks.organization.assets.assets_organization import ORGANIZATION_PANEL, ORGANIZATION, ORGANIZATION_PRAY_CHECK, \
+    PRAY_EXIT, ORGANIZATION_EXIT
 from tasks.page.assets.assets_page import MAIN_GOTO_CHARACTER
 from tasks.freebies.assets.assets_freebies_mail import *
 from tasks.freebies.assets.assets_freebies_dailyshare import *
@@ -98,5 +100,10 @@ page_gifts_claim.link(GIFTS_CLAIM_CONFIRM,destination=page_friend_panel)
 page_zhaocai=Page(ZHAO_CAI_CHECK)
 page_main.link(MAIN_GOTO_ZHAO_CAI,destination=page_zhaocai)
 page_zhaocai.link(ZHAO_CAI_GOTO_MAIN,destination=page_main)
-
+#Organization
+page_organization_panel=Page(ORGANIZATION_PANEL)
+page_organization=Page(ORGANIZATION)
+page_pray=Page(ORGANIZATION_PRAY_CHECK)
+page_pray.link(PRAY_EXIT,destination=page_organization)
+page_organization.link(ORGANIZATION_EXIT,destination=page_main)
 

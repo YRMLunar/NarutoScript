@@ -40,9 +40,7 @@ class MailReward(UI):
                 logger.info('go to page main')
                 break
             if  self.appear_then_click(MAIL_EXIT,interval=2):
-
                 logger.info('Mail exit done')
-
                 continue
             if time.reached():
                 raise GameStuckError("Mail exit failed")
@@ -94,6 +92,7 @@ class MailReward(UI):
             self._mail_enter()
             self._mail_claim()
             self._mail_exit()
+            return True
         else:
             logger.info('Mail Not Found Red Dot')
             return False
