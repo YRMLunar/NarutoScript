@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+EXIT_CONFIRM = ButtonWrapper(
+    name='EXIT_CONFIRM',
+    share=Button(
+        file='./assets/share/base/popup/EXIT_CONFIRM.png',
+        area=(365, 167, 920, 407),
+        search=(345, 147, 940, 427),
+        color=(148, 147, 134),
+        button=(536, 414, 741, 486),
+    ),
+)
 GET_CHARACTER = ButtonWrapper(
     name='GET_CHARACTER',
     en=Button(

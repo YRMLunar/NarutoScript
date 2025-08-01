@@ -53,8 +53,11 @@ class GeneratedConfig:
     Organization_OrganizationPray = True
 
     # Group `DailyReward`
-    DailyReward_Daily = True
     DailyReward_Weekly = True
+
+    # Group `SquadRaid`
+    SquadRaid_SquadRaidBenefit = True
+    SquadRaid_SquadRaidFight = 'SquadHelp'  # SquadHelp
 
     # Group `ItemStorage`
     ItemStorage_Credit = {}

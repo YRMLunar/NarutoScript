@@ -4,12 +4,10 @@ import module.config.server as server
 from module.config.server import VALID_LANG
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
-from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
+
 
 from tasks.base.page import Page, page_main
 from tasks.base.popup import PopupHandler
-
-
 
 
 

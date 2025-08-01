@@ -41,6 +41,10 @@
     "DataUpdate": {
       "name": "Task.DataUpdate.name",
       "help": "Task.DataUpdate.help"
+    },
+    "SquadRaid": {
+      "name": "Task.SquadRaid.name",
+      "help": "Task.SquadRaid.help"
     }
   },
   "Scheduler": {
@@ -246,13 +250,24 @@
       "name": "DailyReward._info.name",
       "help": "DailyReward._info.help"
     },
-    "Daily": {
-      "name": "DailyReward.Daily.name",
-      "help": "DailyReward.Daily.help"
-    },
     "Weekly": {
       "name": "DailyReward.Weekly.name",
       "help": "DailyReward.Weekly.help"
+    }
+  },
+  "SquadRaid": {
+    "_info": {
+      "name": "SquadRaid._info.name",
+      "help": "SquadRaid._info.help"
+    },
+    "SquadRaidBenefit": {
+      "name": "SquadRaid.SquadRaidBenefit.name",
+      "help": "SquadRaid.SquadRaidBenefit.help"
+    },
+    "SquadRaidFight": {
+      "name": "SquadRaid.SquadRaidFight.name",
+      "help": "SquadRaid.SquadRaidFight.help",
+      "SquadHelp": "SquadHelp"
     }
   },
   "ItemStorage": {

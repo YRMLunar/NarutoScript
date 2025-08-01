@@ -28,6 +28,7 @@ class Mission(UI):
         self._mission_reward_claim()
         #self._mission_selected()
         self.config.task_delay(server_update=True)
+        self.config.task_stop()
 
 
     def _mission_enter(self):

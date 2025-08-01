@@ -14,6 +14,7 @@ class ZhaoCai(UI):
             ZhaoCaiFree(self.config,self.device).handle_zhao_Cai()
 
         self.config.task_delay(server_update=True)
+        self.config.task_stop()
 
 
 az=ZhaoCai('alas',task='Alas')

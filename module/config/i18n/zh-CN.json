@@ -41,6 +41,10 @@
     "DataUpdate": {
       "name": "数据更新",
       "help": ""
+    },
+    "SquadRaid": {
+      "name": "小队突袭",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -246,13 +250,24 @@
       "name": "活跃度奖励",
       "help": ""
     },
-    "Daily": {
-      "name": "日常奖励",
-      "help": ""
-    },
     "Weekly": {
       "name": "周常奖励",
       "help": ""
+    }
+  },
+  "SquadRaid": {
+    "_info": {
+      "name": "小队突袭",
+      "help": ""
+    },
+    "SquadRaidBenefit": {
+      "name": "领取功勋奖励",
+      "help": ""
+    },
+    "SquadRaidFight": {
+      "name": "小队突袭",
+      "help": "",
+      "SquadHelp": "组织助战"
     }
   },
   "ItemStorage": {

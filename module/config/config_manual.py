@@ -13,6 +13,7 @@ class ManualConfig:
     > Weekly >
     > Freebies  
     > ZhaoCai
+    >SquadRaid
     >Organization
     >Mission
     >DailyReward

@@ -39,6 +39,9 @@ Daily:
     DataUpdate:
       - Scheduler
       - ItemStorage
+    SquadRaid:
+      - Scheduler
+      - SquadRaid
 
 
 # ==================== Weekly ====================

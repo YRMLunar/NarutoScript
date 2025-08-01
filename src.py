@@ -47,6 +47,9 @@ class StarRailCopilot(AzurLaneAutoScript):
     def daily_reward(self):
         from tasks.daily.daily import Daily_Reward
         Daily_Reward(config=self.config, device=self.device).run()
+    def squad_raid(self):
+        from tasks.squadraid.squadraid import SquadRaid
+        SquadRaid(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

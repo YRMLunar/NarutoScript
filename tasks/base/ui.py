@@ -4,13 +4,16 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError, HandledError
 from module.logger import logger
 from module.ocr.ocr import Ocr
+from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
+
 from tasks.base.main_page import MainPage
 from tasks.base.page import Page, page_main
 from tasks.login.assets.assets_login import ACCOUNT_CONFIRM
-from tasks.page.assets.assets_page import MAIN_GOTO_CHARACTER
-from tasks.login.assets import *
 
-class UI(MainPage):
+
+from tasks.base.popup import PopupHandler
+
+class UI(MainPage,PopupHandler):
     ui_current: Page
     ui_main_confirm_timer = Timer(0.2, count=0)
 
@@ -322,8 +325,7 @@ class UI(MainPage):
 
         return appear
 
-    def is_in_map_exit(self, interval=0):
-        return True
+
 
     def handle_login_confirm(self):
         """
@@ -346,6 +348,9 @@ class UI(MainPage):
         Returns:
             If handled any popup.
         """
+        if self.handle_exit():
+            return True
+
 
 
         return False
@@ -411,8 +416,7 @@ class UI(MainPage):
             in: Any
             out: page_main
         """
-        if not self.is_in_map_exit():
-            return False
+
 
         logger.info('UI leave special')
         skip_first_screenshot = True

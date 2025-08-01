@@ -110,12 +110,20 @@ Organization:
     type: checkbox
     value:  true
 DailyReward:
-  Daily:
-    type: checkbox
-    value: true
   Weekly:
     type: checkbox
     value: true
+SquadRaid:
+  SquadRaidBenefit:
+    type: checkbox
+    value: true
+  SquadRaidFight:
+    type: select
+    value: SquadHelp
+    option: [SquadHelp]
+
+
+
 
 
 ItemStorage:
