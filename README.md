@@ -1,50 +1,53 @@
-**| [English](README_en.md) | 简体中文 | [Español](README_es.md)** |
+# NarutoScript
+
+NarutoScript 是一款基于 Alas 框架开发的自动化辅助工具，专为《火影忍者手游》设计。通过智能化脚本逻辑，帮助玩家高效处理游戏内重复操作，轻松完成日常任务与资源收集，让游戏体验更轻松惬意。
 
 
-# StarRailCopilot
+## 核心功能
 
-Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于下一代Alas框架。
+- **全场景任务自动化**  
+  覆盖游戏内多类核心任务，包括小队突袭、活跃度任务、日常试炼等，自动触发任务流程并优化执行路径，减少手动操作成本。
 
-![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_cn.png)
+- **智能副本管理**  
+  针对每日副本、精英副本等玩法，实现体力智能分配与挑战优先级排序，自动根据配置完成指定次数挑战，确保资源获取效率最大化。
 
-![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_cn.png)
+- **全量奖励收割**  
+  自动检索并领取各类游戏奖励，涵盖活跃度宝箱、忍法帖进度奖励、签到奖励、活动礼包等，避免遗漏任何可获取资源。
 
-## 功能
+- **轻量化后台托管**  
+  支持模拟器与游戏自动启动，搭配实时数据仪表盘，玩家可随时查看体力、金币、道具等资源状态，实现"启动即托管"的低干预体验。
 
-- **打本**：[角色养成规划](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn)，每日副本，双倍活动副本，历战余响。
-- **收获**：完成每日任务，收派委托，收取无名勋礼奖励。
-- **模拟宇宙**：刷模拟宇宙，使用开拓力刷内圈遗器。
-- **后台托管**：自动启动模拟器和游戏，后台托管清体力和每日，通过仪表盘了解资源情况。
-- **云游戏**：（仅国服）[在云崩坏星穹铁道上运行SRC](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
 
-## 安装 [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
+## 开发规划
 
-[中文安装教程](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_cn)，包含自动安装教程，使用教程，手动安装教程。
+- **初期目标**：完善非战斗场景全流程自动化，包括任务接取、奖励领取、商店兑换等基础功能。
+- **中期计划**：开发限时活动专项工具，适配节日活动、联动活动等短期玩法的自动化需求。
+- **远期愿景**：探索决斗场智能对战、秘境探险自动战斗等深度玩法支持（画个大饼🫓，敬请期待）。
 
-[设备支持文档](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Emulator_cn)，支持 Windows/Mac/Linux 以及各种骚方式运行。
 
-> **为什么使用模拟器？** 如果你用桌面端来运行脚本的话，游戏窗口必须保持在前台，我猜你也不想运行脚本的时候不能动鼠标键盘像个傻宝一样坐在那吧，所以用模拟器。
+## 相关项目
 
-> **模拟器的性能表现如何？** Lme 的 8700k+1080ti 使用 MuMu 12 模拟器画质设置非常高是有 40fps 的，如果你的配置稍微新一点的话，特效最高 60fps 不是问题。
+NarutoScript 基于 Alas 生态开发，以下项目可供参考：
 
-## 开发
+- **AzurLaneAutoScript（Alas）**  
+  本项目的底层框架来源，一款成熟的碧蓝航线自动化脚本，具备完善的图像识别、任务调度与配置管理能力。  
+  👉 [Alas 仓库](https://github.com/LmeSzinc/AzurLaneAutoScript)
 
-QQ一群 752620927 (有开发意向请加一群)
-QQ二群 1033583803
-Discord https://discord.gg/aJkt3mKDEr
+- **其他 Alas 衍生项目**  
+  包括但不限于《明日方舟》《崩坏：星穹铁道》等游戏的自动化工具，均基于 Alas 框架扩展开发，可作为跨游戏适配的参考案例。
 
-- [小地图识别原理](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)
-- 开发文档（目录在侧边栏）：[Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start)，但很多内容是新写的，建议阅读源码和历史提交。
-- 开发路线图：见置顶 issue，欢迎提交 PR，挑选你感兴趣的部分进行开发即可。
 
-> **如何添加多语言/多服务器支持？** 需要适配 assets，参考 [开发文档 “添加一个 Button” 一节](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button)。
+## 关于 Alas 框架
 
-## 关于 Alas
+NarutoScript 继承自 AzurLaneAutoScript（Alas）的核心架构，并针对《火影忍者手游》的场景特性进行了适配优化。相较于原版 Alas，本项目着重解决了以下问题：
+- 升级 OCR 识别库，提升对游戏内特殊字体的识别准确率
+- 采用 Pydantic 重构配置系统，增强类型校验与配置扩展性
 
-SRC 基于碧蓝航线脚本 [AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript) 开发，Alas 经过三年的发展现在已经达到一个高完成度，但也累积了不少屎山难以改动，我们希望在新项目上解决这些问题。
+## 许可证
 
-- 更新 OCR 库。Alas 在 cnocr==1.2.2 上训练了多个模型，但依赖的 [mxnet](https://github.com/apache/mxnet) 已经不怎么活跃了，机器学习发展迅速，新模型的速度和正确率都碾压旧模型。
-- 配置文件 [pydantic](https://github.com/pydantic/pydantic) 化。自任务和调度器的概念加入后用户设置数量倍增，Alas 土制了一个代码生成器来完成配置文件的更新和访问，pydantic 将让这部分更加简洁。
-- 更好的 Assets 管理。button_extract 帮助 Alas 轻易维护了 4000+ 模板图片，但它有严重的性能问题，对外服缺失 Assets 的提示也淹没在了大量垃圾 log 中。
-- 减少对于碧蓝的耦合。Alas 框架和 Alas GUI 有对接其他游戏及其脚本的能力，但已经完成的明日方舟 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 插件和正在开发的 [fgo-py](https://github.com/hgjazhgj/FGO-py) 插件都发现了 Alas 与碧蓝航线游戏本身耦合严重的问题。
+本项目遵循 [MIT 许可证](LICENSE) 开源，允许非商业场景下的自由使用、修改与分发，使用前请仔细阅读许可条款。
 
+
+---
+
+如有功能建议、BUG 反馈或开发合作意向，欢迎提交 Issue 或 Pull Request，我们会尽快响应。

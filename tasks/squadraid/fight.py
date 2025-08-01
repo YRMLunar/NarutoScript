@@ -21,7 +21,7 @@ class SquadRaidFight(UI):
 
     def _squad_raid_fight(self):
         if self._enter_squad_raid_screen():
-            time=Timer(2,count=4)
+            time=Timer(1,count=2)
             for _ in  self.loop():
                 if self.appear(SQUAD_RAID_HAVE_DONE):
                     return
