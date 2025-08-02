@@ -47,6 +47,17 @@ QQ_GOTO_MAIN = ButtonWrapper(
     ),
     en=None,
 )
+QQ_MENU = ButtonWrapper(
+    name='QQ_MENU',
+    cn=Button(
+        file='./assets/cn/freebies/dailyshare/QQ_MENU.png',
+        area=(15, 44, 110, 102),
+        search=(0, 24, 130, 122),
+        color=(239, 239, 239),
+        button=(15, 44, 110, 102),
+    ),
+    en=None,
+)
 SHARE_BUTTON = ButtonWrapper(
     name='SHARE_BUTTON',
     cn=Button(

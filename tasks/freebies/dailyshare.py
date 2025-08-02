@@ -1,33 +1,38 @@
 from  module.base.timer import Timer
 from module.exception import GameStuckError
+from module.logger import logger
 
 from tasks.base.page import page_main, page_panel
 from tasks.base.ui import UI
-from tasks.freebies.assets.assets_freebies_dailyshare import MAIN_GOTO_PANEL, SHARE_BUTTON, SHARE_GOTO_QQ, QQ_GOTO_MAIN
+from tasks.freebies.assets.assets_freebies_dailyshare import MAIN_GOTO_PANEL, SHARE_BUTTON, SHARE_GOTO_QQ, QQ_GOTO_MAIN, \
+    QQ_MENU
 
 
 class DailyShare(UI):
     def handle_daily_share(self):
         self.ui_ensure(page_main)
         self.ui_goto(page_panel)
-        time=Timer(20,count=20).start()
+        time=Timer(30,count=30).start()
         for _ in self.loop():
             self.device.click_record_clear()
-
-            if self.appear(SHARE_BUTTON):
+            if self.appear(SHARE_BUTTON,interval=1):
                 self.device.click(SHARE_BUTTON)
                 continue
-            if self.appear(SHARE_GOTO_QQ):
+            if self.appear(SHARE_GOTO_QQ,interval=2):
                 self.device.click(SHARE_GOTO_QQ)
                 continue
+            if self.appear(QQ_MENU,interval=1):
+                self.device.app_stop_adb('com.tencent.mobileqq')
+                break
             if time.reached():
                 raise GameStuckError("DailyShare Game stuck")
-            if  self.device.app_is_running():
-                continue
-            else:
-                self.device.app_stop_adb('com.tencent.mobileqq')
-                self.device.click(QQ_GOTO_MAIN)
-                break
+        self.device.sleep(4)
+        if self.appear(SHARE_GOTO_QQ,interval=1):
+            self.device.click(SHARE_BUTTON)
+
+
+
+
 
 
 
