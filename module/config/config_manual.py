@@ -10,14 +10,14 @@ class ManualConfig:
 
     SCHEDULER_PRIORITY = """
     Restart
-    > Weekly >
+    > Weekly 
     > Freebies  
     > ZhaoCai
-    >SquadRaid
-    >Organization
-    >Mission
-    >DailyReward
-    >DataUpdate
+    > SquadRaid
+    > Organization
+    > Mission
+    > DailyReward
+    > DataUpdate
     """
 
     """
