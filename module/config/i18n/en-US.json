@@ -45,6 +45,10 @@
     "SquadRaid": {
       "name": "Task.SquadRaid.name",
       "help": "Task.SquadRaid.help"
+    },
+    "FengRao": {
+      "name": "Task.FengRao.name",
+      "help": "Task.FengRao.help"
     }
   },
   "Scheduler": {

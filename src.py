@@ -53,6 +53,9 @@ class StarRailCopilot(AzurLaneAutoScript):
     def zhao_cai(self):
         from tasks.zhaocai.zhaocai import ZhaoCai
         ZhaoCai(config=self.config, device=self.device).run()
+    def feng_rao(self):
+        from tasks.fengrao.fengrao import FengRao
+        FengRao(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

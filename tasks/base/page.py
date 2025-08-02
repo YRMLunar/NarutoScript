@@ -3,6 +3,7 @@ import traceback
 from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
 from tasks.daily.assets.assets_daily import DAILY_CHECK, MAIN_GOTO_DAILY, DAILY_EXIT, WEEKLY_CHECK, WEEKlY_BUTTON, \
     WEEKLY_EXIT
+from tasks.fengrao.assets.assets_fengrao import FENG_RAO_CHECK, MAIN_GOTO_FENG_RAO, FENG_RAO_EXIT
 from tasks.freebies.assets.assets_freebies_dailyshare import PANEL_CHECK, MAIN_GOTO_PANEL, PANEL_GOTO_MAIN
 from tasks.freebies.assets.assets_freebies_friendgifts import FRIEND_PANEL_CHECK, GIFTS_CLAIM_CHECK, \
     MAIN_GOTO_FRIEND_PANEL, FRIEND_PANEL_GOTO_MAIN, GIFTS_CLAIM_CONFIRM
@@ -128,3 +129,7 @@ page_squad_help_battle.link(HELP_BATTLE_GOTO_MINE,destination=page_squad_help_ba
 page_squad_help_battle_mine.link(HELP_BATTLE_MINE_EXIT,destination=page_squad_help_battle)
 page_squad_help_battle.link(SQUAD_RAID_EXIT,destination=page_squad)
 page_squad.link(SQUAD_RAID_EXIT,destination=page_main)
+#FengRao
+page_feng_rao=Page(FENG_RAO_CHECK)
+page_main.link(MAIN_GOTO_FENG_RAO,destination=page_feng_rao)
+page_feng_rao.link(FENG_RAO_EXIT,destination=page_main)

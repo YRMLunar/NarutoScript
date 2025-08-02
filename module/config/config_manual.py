@@ -14,6 +14,7 @@ class ManualConfig:
     > Freebies  
     > ZhaoCai
     > SquadRaid
+    > FengRao
     > Organization
     > Mission
     > DailyReward

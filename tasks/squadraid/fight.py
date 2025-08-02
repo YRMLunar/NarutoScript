@@ -6,12 +6,14 @@ from module.base.timer import Timer
 from module.exception import GameStuckError
 from module.logger import logger
 from module.ocr.ocr import Ocr, DigitCounter, Digit
-from tasks.base.page import page_squad, page_squad_help_battle
+from tasks.base.assets.assets_base_popup import EXIT_CONFIRM
+from tasks.base.page import page_squad, page_squad_help_battle, page_main
 from tasks.base.ui import UI
 from tasks.squadraid.assets.assets_squadraid import SQUAD_RAID_RED_DOT, MAIN_GOTO_SQUAD_RAID, SQUAD_RAID_CHECK, \
     HELP_BATTLE_START_FIGHT, \
     SQUAD_RAID_FIGHTING, SQUAD_RAID_FIGHT_SUCCESS, SQUAD_RAID_HAVE_DONE, SQUAD_GOTO_HELP_BATTLE, SQUAD_RAID_NEED_FIGHT, \
-    SQUAD_RAID_REMAIN_TIMES, HELP_BATTLE_SELECT_BUTTON, HELP_BATTLE_SELECTED, HELP_BATTLE_NOT_BE_SELECTED
+    SQUAD_RAID_REMAIN_TIMES, HELP_BATTLE_SELECT_BUTTON, HELP_BATTLE_SELECTED, HELP_BATTLE_NOT_BE_SELECTED, \
+    SQUAD_RAID_EXIT
 from tasks.squadraid.benefit import HelpBattleBenefit
 
 class SquadRaidFight(UI):
@@ -21,7 +23,7 @@ class SquadRaidFight(UI):
                break
         if self.config.SquadRaid_SquadRaidBenefit:
             HelpBattleBenefit(self.config,self.device).handle_help_battle_benefit()
-        self.ui_goto_main()
+        self.exit_to_main()
 
 
     def _squad_raid_fight(self):
@@ -109,3 +111,14 @@ class SquadRaidFight(UI):
                 elif m>5:
                     raise GameStuckError("Squad Raid enter Stucked")
         logger.info(f"Squad Raid entered")
+
+    def exit_to_main(self):
+        for _ in self.loop():
+            if self.appear(EXIT_CONFIRM):
+                self.device.click(EXIT_CONFIRM)
+                continue
+            if self.appear(SQUAD_RAID_EXIT):
+                self.device.click(SQUAD_RAID_EXIT)
+            if self.ui_page_appear(page_main):
+                break
+            self.device.click_record_clear()

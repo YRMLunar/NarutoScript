@@ -45,6 +45,10 @@
     "SquadRaid": {
       "name": "小队突袭",
       "help": ""
+    },
+    "FengRao": {
+      "name": "丰饶之间",
+      "help": ""
     }
   },
   "Scheduler": {

@@ -42,6 +42,9 @@ Daily:
     SquadRaid:
       - Scheduler
       - SquadRaid
+    FengRao:
+      - Scheduler
+      - FengRao
 
 
 # ==================== Weekly ====================
