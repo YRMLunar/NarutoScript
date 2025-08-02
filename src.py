@@ -50,6 +50,9 @@ class StarRailCopilot(AzurLaneAutoScript):
     def squad_raid(self):
         from tasks.squadraid.squadraid import SquadRaid
         SquadRaid(config=self.config, device=self.device).run()
+    def zhao_cai(self):
+        from tasks.zhaocai.zhaocai import ZhaoCai
+        ZhaoCai(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

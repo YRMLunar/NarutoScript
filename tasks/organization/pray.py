@@ -78,7 +78,3 @@ class Pray(UI):
 
 
 
-
-az = Pray('alas', task='Alas')
-az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\daily\MuMu12-20250731-190706.png'
-az.reward_appear()

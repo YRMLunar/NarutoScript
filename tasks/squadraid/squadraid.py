@@ -10,5 +10,3 @@ class SquadRaid(UI):
             SquadRaidFight(self.config,self.device).handle_squad_raid()
         self.config.task_delay(server_update=True)
         self.config.task_stop()
-az=SquadRaid('alas',task='Alas')
-az.run()

@@ -54,7 +54,3 @@ class GameInPopup(ModuleBase):
 
 
         return False
-
-az=GameInPopup('alas',task='Alas')
-az.image_file=r'C:\Users\刘振洋\Desktop\NarutoScript\tasks\login\MuMu12-20250720-230752.png'
-print(az.appear(GAME_IN_ADVERTISE, interval=3))

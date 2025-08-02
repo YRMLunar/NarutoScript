@@ -106,10 +106,3 @@ class Login(UI,GameInPopup):
         self.handle_app_login()
 
         self.config.task_delay(server_update=True)
-az=Login('alas',task='Alas')
-
-
-az.image_file = r'C:\Users\刘振洋\Desktop\NarutoScript\tasks\login\MuMu12-20250724-222202.png'
-#print(az.appear(MAIN_GOTO_CHARACTER))
-#print(az.appear(Game_In_Advertise))
-az.app_start()

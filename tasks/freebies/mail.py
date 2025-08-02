@@ -108,10 +108,4 @@ class MailReward(UI):
             if timeout.reached():
                 break
 
-az=MailReward('alas',task='Alas')
-az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\freebies\MuMu12-20250731-132002.png'
-#print(az.ui_page_appear(page_mail))
-# print(az.appear(MAIL_RED_DOT))
-# print(az.appear(MAIN_GOTO_MAIL))
-az.handle_mail_reward()
 

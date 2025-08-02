@@ -41,6 +41,3 @@ class FriendGifts(UI):
                 break
             if time.reached():
                 raise GameStuckError("friend gifts claim failed")
-
-az=FriendGifts('alas',task='Alas')
-az.handle_friend_gifts()

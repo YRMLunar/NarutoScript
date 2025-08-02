@@ -17,6 +17,4 @@ class ZhaoCai(UI):
         self.config.task_stop()
 
 
-az=ZhaoCai('alas',task='Alas')
-az.run()
 

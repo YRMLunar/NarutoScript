@@ -27,5 +27,3 @@ class HelpBattleBenefit(UI):
             if time.reached():
                 break
         return True
-az=HelpBattleBenefit('alas',task='Alas')
-az.handle_help_battle_benefit()

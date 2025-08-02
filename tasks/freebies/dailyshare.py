@@ -31,8 +31,3 @@ class DailyShare(UI):
 
 
 
-
-az=DailyShare('alas',task='Alas')
-# az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\freebies\MuMu12-20250728-165453.png'
-# print(az.appear(SHARE_GOTO_QQ))
-az.handle_daily_share()
