@@ -16,8 +16,6 @@ from tasks.squadraid.benefit import HelpBattleBenefit
 
 class SquadRaidFight(UI):
     def handle_squad_raid(self):
-
-
         for _ in self.loop():
            if not self._squad_raid_fight():
                break
@@ -45,21 +43,20 @@ class SquadRaidFight(UI):
         return True
     def _help_battle_select(self):
         self.device.screenshot()
-        time=Timer(4,count=5).start()
-
+        time=Timer(6,count=10).start()
         for _ in self.loop():
             if self.appear_then_click(SQUAD_GOTO_HELP_BATTLE):
                 continue
-            if self.ui_page_appear(page_squad_help_battle):
-                results_buttons=HELP_BATTLE_SELECT_BUTTON.match_multi_template(self.device.image,direct_match=True)
+            if self.ui_page_appear(page_squad_help_battle,interval=1):
                 wrong_buttons=HELP_BATTLE_NOT_BE_SELECTED.match_multi_template(self.device.image,direct_match=True)
                 if wrong_buttons and len(wrong_buttons)==5:
                     self.device.swipe( [263,594],[270,182])
                     time.reset()
-                if results_buttons:
-                    random_result = random.choice(results_buttons)
-                    self.device.click(random_result)
-            HELP_BATTLE_SELECTED.load_search([333, 137, 473, 654])
+                HELP_BATTLE_SELECTED.load_search([353, 157, 453, 634])
+                self.appear_then_click(HELP_BATTLE_SELECT_BUTTON)
+
+
+            HELP_BATTLE_SELECTED.load_search([353, 157, 453, 634])
             if self.appear(HELP_BATTLE_SELECTED):
                 break
             if time.reached():

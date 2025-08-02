@@ -1,20 +1,31 @@
 from module.base.timer import Timer
+from module.exception import GameStuckError
 
 from tasks.base.page import page_squad_help_battle_mine
 from tasks.base.ui import UI
-from tasks.squadraid.assets.assets_squadraid import HELP_BATTLE_MINE_BENEFIT_CLAIM, HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE
-
+from tasks.squadraid.assets.assets_squadraid import HELP_BATTLE_MINE_BENEFIT_CLAIM, HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE, \
+    SQUAD_GOTO_HELP_BATTLE, HELP_BATTLE_GOTO_MINE
 
 
 class HelpBattleBenefit(UI):
     def handle_help_battle_benefit(self):
-        self.ui_goto(page_squad_help_battle_mine)
-        time=Timer(5,count=10).start()
+        self.device.screenshot()
+        time=Timer(10,count=20).start()
         for _ in self.loop():
-            if self.appear_then_click(HELP_BATTLE_MINE_BENEFIT_CLAIM):
+            if self.appear(SQUAD_GOTO_HELP_BATTLE):
+                self.device.click(SQUAD_GOTO_HELP_BATTLE)
                 continue
+            if self.appear(HELP_BATTLE_GOTO_MINE,interval=1):
+                self.device.click(HELP_BATTLE_GOTO_MINE)
+                continue
+            print(time)
             if self.appear(HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE):
                 break
+            if self.appear(HELP_BATTLE_MINE_BENEFIT_CLAIM):
+                self.device.click(HELP_BATTLE_MINE_BENEFIT_CLAIM)
+                continue
             if time.reached():
                 break
         return True
+az=HelpBattleBenefit('alas',task='Alas')
+az.handle_help_battle_benefit()

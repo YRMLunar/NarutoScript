@@ -5,13 +5,29 @@ from module.base.button import Button, ButtonWrapper
 
 HELP_BATTLE_GOTO_MINE = ButtonWrapper(
     name='HELP_BATTLE_GOTO_MINE',
-    cn=Button(
-        file='./assets/cn/squadraid/HELP_BATTLE_GOTO_MINE.png',
-        area=(823, 630, 941, 703),
-        search=(803, 610, 961, 720),
-        color=(108, 84, 80),
-        button=(823, 630, 941, 703),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/squadraid/HELP_BATTLE_GOTO_MINE.png',
+            area=(823, 630, 941, 703),
+            search=(803, 610, 961, 720),
+            color=(108, 84, 80),
+            button=(823, 630, 941, 703),
+        ),
+        Button(
+            file='./assets/cn/squadraid/HELP_BATTLE_GOTO_MINE.2.png',
+            area=(822, 616, 939, 708),
+            search=(802, 596, 959, 720),
+            color=(102, 80, 75),
+            button=(822, 616, 939, 708),
+        ),
+        Button(
+            file='./assets/cn/squadraid/HELP_BATTLE_GOTO_MINE.3.png',
+            area=(815, 605, 950, 710),
+            search=(795, 585, 970, 720),
+            color=(93, 73, 67),
+            button=(815, 605, 950, 710),
+        ),
+    ],
     en=None,
 )
 HELP_BATTLE_LIST = ButtonWrapper(
@@ -38,13 +54,22 @@ HELP_BATTLE_MINE_BENEFIT_CLAIM = ButtonWrapper(
 )
 HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE = ButtonWrapper(
     name='HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE',
-    cn=Button(
-        file='./assets/cn/squadraid/HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE.png',
-        area=(520, 557, 605, 613),
-        search=(500, 537, 625, 633),
-        color=(85, 77, 58),
-        button=(520, 557, 605, 613),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/squadraid/HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE.png',
+            area=(520, 557, 605, 613),
+            search=(500, 537, 625, 633),
+            color=(85, 77, 58),
+            button=(520, 557, 605, 613),
+        ),
+        Button(
+            file='./assets/cn/squadraid/HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE.2.png',
+            area=(502, 336, 776, 384),
+            search=(482, 316, 796, 404),
+            color=(68, 66, 69),
+            button=(502, 336, 776, 384),
+        ),
+    ],
     en=None,
 )
 HELP_BATTLE_MINE_CHECK = ButtonWrapper(
