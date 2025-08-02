@@ -12,6 +12,8 @@ class DailyShare(UI):
         self.ui_goto(page_panel)
         time=Timer(20,count=20).start()
         for _ in self.loop():
+            self.device.click_record_clear()
+
             if self.appear(SHARE_BUTTON):
                 self.device.click(SHARE_BUTTON)
                 continue
@@ -26,6 +28,7 @@ class DailyShare(UI):
                 self.device.app_stop_adb('com.tencent.mobileqq')
                 self.device.click(QQ_GOTO_MAIN)
                 break
+
 
 
 

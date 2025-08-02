@@ -41,3 +41,5 @@ class FriendGifts(UI):
                 break
             if time.reached():
                 raise GameStuckError("friend gifts claim failed")
+            self.device.click_record_clear()
+
