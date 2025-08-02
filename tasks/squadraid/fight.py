@@ -3,17 +3,22 @@
 from module.base.timer import Timer
 from module.exception import GameStuckError
 from module.logger import logger
+from module.ocr.ocr import Ocr, DigitCounter, Digit
 from tasks.base.page import page_squad, page_squad_help_battle
 from tasks.base.ui import UI
 from tasks.squadraid.assets.assets_squadraid import SQUAD_RAID_RED_DOT, MAIN_GOTO_SQUAD_RAID, SQUAD_RAID_CHECK, \
     HELP_BATTLE_SLECT_BUTTON, HELP_BATTLE_SELECTED, HELP_BATTLE_START_FIGHT, \
-    SQUAD_RAID_FIGHTING, SQUAD_RAID_FIGHT_SUCCESS, SQUAD_RAID_HAVE_DONE, SQUAD_GOTO_HELP_BATTLE
+    SQUAD_RAID_FIGHTING, SQUAD_RAID_FIGHT_SUCCESS, SQUAD_RAID_HAVE_DONE, SQUAD_GOTO_HELP_BATTLE, SQUAD_RAID_NEED_FIGHT, \
+    SQUAD_RAID_REMAIN_TIMES
 from tasks.squadraid.benefit import HelpBattleBenefit
 
 class SquadRaidFight(UI):
     def handle_squad_raid(self):
-        self._squad_raid_fight()
-        self._squad_raid_fight()
+
+
+        for _ in self.loop():
+           if not self._squad_raid_fight():
+               break
         if self.config.SquadRaid_SquadRaidBenefit:
             HelpBattleBenefit(self.config,self.device).handle_help_battle_benefit()
         self.ui_goto_main()
@@ -23,12 +28,19 @@ class SquadRaidFight(UI):
         if self._enter_squad_raid_screen():
             time=Timer(1,count=2)
             for _ in  self.loop():
+                ocr=Digit(SQUAD_RAID_REMAIN_TIMES,lang='cn')
+                res=ocr.ocr_single_line(self.device.image)
+                if res==2 or res==1:
+                    break
                 if self.appear(SQUAD_RAID_HAVE_DONE):
-                    return
-                if time.reached():
-                    return
+                    return False
             self._help_battle_select()
             self._start_fight()
+
+
+        else:
+            return True
+        return True
     def _help_battle_select(self):
         self.device.screenshot()
         time=Timer(5,8).start()
