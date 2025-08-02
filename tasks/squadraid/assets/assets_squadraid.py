@@ -91,14 +91,14 @@ HELP_BATTLE_SELECTED = ButtonWrapper(
     ),
     en=None,
 )
-HELP_BATTLE_SLECT_BUTTON = ButtonWrapper(
-    name='HELP_BATTLE_SLECT_BUTTON',
+HELP_BATTLE_SELECT_BUTTON = ButtonWrapper(
+    name='HELP_BATTLE_SELECT_BUTTON',
     cn=Button(
-        file='./assets/cn/squadraid/HELP_BATTLE_SLECT_BUTTON.png',
-        area=(355, 354, 443, 438),
-        search=(335, 334, 463, 458),
-        color=(82, 72, 73),
-        button=(355, 354, 443, 438),
+        file='./assets/cn/squadraid/HELP_BATTLE_SELECT_BUTTON.png',
+        area=(354, 348, 444, 442),
+        search=(334, 328, 464, 462),
+        color=(77, 66, 68),
+        button=(354, 348, 444, 442),
     ),
     en=None,
 )
