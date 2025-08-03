@@ -6,8 +6,8 @@ from module.ocr.ocr import Ocr
 from module.ocr.onnxocr.onnx_paddleocr import ONNXPaddleOcr
 from tasks.base.page import page_main, page_daily
 from tasks.base.ui import UI
-from tasks.daily.assets.assets_daily import DAILY_REWARD_10, DAILY_BAR, DAILY_PROGRESS, DAILY_REWARD_40, \
-    DAILY_REWARD_80, DAILY_REWARD_100, DAILY_REWARD_10_DONE, WEEKlY_BUTTON, WEEKLY_CLAIM, WEEKLY_CLAIM_DONE
+from tasks.daily.assets.assets_daily_daily import *
+from tasks.daily.assets.assets_daily_weekly import  *
 import cv2
 import numpy as np
 
@@ -18,8 +18,7 @@ class DailyRewardClaim(UI,daily_utils):
     def handle_daily_reward(self):
         self.ui_ensure(page_main)
         self.ui_goto(page_daily)
-        if self.config.DailyReward_Daily:
-            self._reward_daily_claim()
+        self._reward_daily_claim()
         if self.config.DailyReward_Weekly:
             self._reward_weekly_claim()
         self.ui_goto_main()
@@ -85,6 +84,3 @@ class DailyRewardClaim(UI,daily_utils):
        not_golden_box=self.detect_ring_golden_glow(DAILY_REWARD_10) or self.detect_ring_golden_glow(DAILY_REWARD_40) or self.detect_ring_golden_glow(DAILY_REWARD_80) or self.detect_ring_golden_glow(DAILY_REWARD_100)
        return not_golden_box
 
-az=DailyRewardClaim('alas',task='Alas')
-
-az.handle_daily_reward()

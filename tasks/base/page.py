@@ -1,20 +1,21 @@
 import traceback
 
-from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
-from tasks.daily.assets.assets_daily import DAILY_CHECK, MAIN_GOTO_DAILY, DAILY_EXIT, WEEKLY_CHECK, WEEKlY_BUTTON, \
-    WEEKLY_EXIT
-from tasks.fengrao.assets.assets_fengrao import FENG_RAO_CHECK, MAIN_GOTO_FENG_RAO, FENG_RAO_EXIT
-from tasks.freebies.assets.assets_freebies_dailyshare import PANEL_CHECK, MAIN_GOTO_PANEL, PANEL_GOTO_MAIN
-from tasks.freebies.assets.assets_freebies_friendgifts import FRIEND_PANEL_CHECK, GIFTS_CLAIM_CHECK, \
-    MAIN_GOTO_FRIEND_PANEL, FRIEND_PANEL_GOTO_MAIN, GIFTS_CLAIM_CONFIRM
-from tasks.freebies.assets.assets_freebies_mail import MAIL_CHECK, MAIL_EXIT, MAIN_GOTO_MAIL
-from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, MISSION_EXIT
-from tasks.organization.assets.assets_organization import ORGANIZATION_PANEL, ORGANIZATION, ORGANIZATION_PRAY_CHECK, \
-    PRAY_EXIT, ORGANIZATION_EXIT
+from tasks.base.assets.assets_base_page import *
+from tasks.daily.assets.assets_daily_daily import *
+from tasks.daily.assets.assets_daily_weekly import *
+from tasks.organization.assets.assets_organization_pray import *
+from tasks.organization.assets.assets_organization_replacement import *
+from tasks.organization.assets.assets_organization_boxclaim import *
+from tasks.zhaocai.assets.assets_zhaocai import *
+from tasks.fengrao.assets.assets_fengrao import *
+from tasks.squadraid.assets.assets_squadraid_fight import *
+from tasks.squadraid.assets.assets_squadraid_benefit import *
+from tasks.mission.assets.assets_mission import *
+from tasks.freebies.assets.assets_freebies_mail import *
+from tasks.freebies.assets.assets_freebies_dailyshare import *
+from tasks.freebies.assets.assets_freebies_friendgifts import *
+from tasks.login.assets.assets_login import *
 
-from tasks.squadraid.assets.assets_squadraid import SQUAD_RAID_CHECK, MAIN_GOTO_SQUAD_RAID, HELP_BATTLE_GOTO_MINE, \
-    HELP_BATTLE_MINE_CHECK, SQUAD_GOTO_HELP_BATTLE, HELP_BATTLE_MINE_EXIT, SQUAD_RAID_EXIT
-from tasks.zhaocai.assets.assets_zhaocai import ZHAO_CAI_CHECK, MAIN_GOTO_ZHAO_CAI, ZHAO_CAI_GOTO_MAIN
 
 
 class Page:

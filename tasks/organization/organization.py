@@ -1,5 +1,5 @@
 from tasks.base.ui import UI
-from tasks.organization.assets.assets_organization import MAIN_GOTO_ORGANIZATION
+
 from tasks.organization.pray import Pray
 
 

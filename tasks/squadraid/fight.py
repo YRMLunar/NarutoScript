@@ -5,15 +5,11 @@ from shapely.lib import length
 from module.base.timer import Timer
 from module.exception import GameStuckError
 from module.logger import logger
-from module.ocr.ocr import Ocr, DigitCounter, Digit
+from module.ocr.ocr import Digit
 from tasks.base.assets.assets_base_popup import EXIT_CONFIRM
 from tasks.base.page import page_squad, page_squad_help_battle, page_main
 from tasks.base.ui import UI
-from tasks.squadraid.assets.assets_squadraid import SQUAD_RAID_RED_DOT, MAIN_GOTO_SQUAD_RAID, SQUAD_RAID_CHECK, \
-    HELP_BATTLE_START_FIGHT, \
-    SQUAD_RAID_FIGHTING, SQUAD_RAID_FIGHT_SUCCESS, SQUAD_RAID_HAVE_DONE, SQUAD_GOTO_HELP_BATTLE, SQUAD_RAID_NEED_FIGHT, \
-    SQUAD_RAID_REMAIN_TIMES, HELP_BATTLE_SELECT_BUTTON, HELP_BATTLE_SELECTED, HELP_BATTLE_NOT_BE_SELECTED, \
-    SQUAD_RAID_EXIT
+from tasks.squadraid.assets.assets_squadraid_fight import *
 from tasks.squadraid.benefit import HelpBattleBenefit
 
 class SquadRaidFight(UI):
@@ -45,7 +41,7 @@ class SquadRaidFight(UI):
         return True
     def _help_battle_select(self):
         self.device.screenshot()
-        time=Timer(6,count=10).start()
+        time=Timer(10,count=20).start()
         for _ in self.loop():
             if self.appear_then_click(SQUAD_GOTO_HELP_BATTLE):
                 continue
@@ -56,8 +52,6 @@ class SquadRaidFight(UI):
                     time.reset()
                 HELP_BATTLE_SELECTED.load_search([353, 157, 453, 634])
                 self.appear_then_click(HELP_BATTLE_SELECT_BUTTON)
-
-
             HELP_BATTLE_SELECTED.load_search([353, 157, 453, 634])
             if self.appear(HELP_BATTLE_SELECTED):
                 break

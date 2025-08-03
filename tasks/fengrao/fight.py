@@ -5,7 +5,7 @@ from tasks.base.assets.assets_base_skill import CHARACTER_SKILL_1, CHARACTER_SKI
 from tasks.base.page import page_main, page_feng_rao
 from tasks.base.ui import UI
 from tasks.fengrao.assets.assets_fengrao import FENG_RAO_RED_DOT, MAIN_GOTO_FENG_RAO, FENG_RAO_CHECK, \
-    FENG_RAO_START_FIGHT_BUTTON, FENG_RAO_FIGHT_STATUS, FENG_RAO_FIGHT_SUCCESS, FENG_RAO_HAVE_DONE
+    FENG_RAO_START_FIGHT_BUTTON, FENG_RAO_FIGHT_STATUS, FENG_RAO_FIGHT_SUCCESS, FENG_RAO_HAVE_DONE, FENG_RAO_EXIT
 
 
 class FengRaoFight(UI):
@@ -13,6 +13,7 @@ class FengRaoFight(UI):
         self.ui_ensure(page_main)
         self._feng_rao_enter()
         self._feng_rao_fight()
+        self._feng_rao_exit()
 
 
     def _feng_rao_enter(self):
@@ -45,6 +46,8 @@ class FengRaoFight(UI):
         logger.info(f"FengRao entered")
     def _feng_rao_fight(self):
         for _ in self.loop():
+            if self.appear(FENG_RAO_HAVE_DONE):
+                return
             if self.appear_then_click(FENG_RAO_START_FIGHT_BUTTON):
                 continue
             if self.appear_then_click(FENG_RAO_FIGHT_STATUS):
@@ -60,13 +63,13 @@ class FengRaoFight(UI):
         skill_1_first = True
         skill_2_first = True
         try:
-            while True:
+            for _ in self.loop():
                     if self.appear(FENG_RAO_CHECK):
-                        break
+                        return
                     if self.appear(FENG_RAO_HAVE_DONE):
-                        break
+                        return
                     if self.appear_then_click(FENG_RAO_FIGHT_SUCCESS):
-                        break
+                        return
                     # 优先级：技能1 > 技能2 > 普通攻击
                     if time_skill_1.reached() or skill_1_first:
                         skill_1_first = False
@@ -119,6 +122,14 @@ class FengRaoFight(UI):
                     self.device.nemu_ipc.up()
             except:
                 pass
+
+    def _feng_rao_exit(self):
+        for _ in self.loop():
+            if self.appear(FENG_RAO_EXIT):
+                self.device.click(FENG_RAO_EXIT)
+            if self.ui_page_appear(page_main):
+                break
+
 
 
 

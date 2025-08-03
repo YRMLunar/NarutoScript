@@ -3,9 +3,8 @@ from module.exception import GameStuckError
 
 from tasks.base.page import page_squad_help_battle_mine
 from tasks.base.ui import UI
-from tasks.squadraid.assets.assets_squadraid import HELP_BATTLE_MINE_BENEFIT_CLAIM, HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE, \
-    SQUAD_GOTO_HELP_BATTLE, HELP_BATTLE_GOTO_MINE
-
+from tasks.squadraid.assets.assets_squadraid_benefit import  *
+from tasks.squadraid.assets.assets_squadraid_fight import *
 
 class HelpBattleBenefit(UI):
     def handle_help_battle_benefit(self):

@@ -28,8 +28,9 @@ class ZhaoCaiFree(UI):
 
     def _enter_zhaocai(self):
         for _ in self.loop():
-            if self.appear(ZHAO_CAI_RED_DOT):
+            if self.appear(ZHAO_CAI_RED_DOT,interval=1):
                 self.device.click(ZHAO_CAI_RED_DOT)
+                continue
             if self.appear(ZHAO_CAI_CHECK):
                 break
 

@@ -11,14 +11,14 @@ from module.logger.logger import logger
 class FriendGifts(UI):
     def handle_friend_gifts(self):
         self.ui_ensure(page_main)
-        if  True:    #self.appear(FRIEND_PANEL_RED_DOT):
+        if self.appear(FRIEND_PANEL_RED_DOT):
             self.ui_goto(page_friend_panel)
             self._friend_gifts_give()
             self._friend_gifts_claim()
         self.ui_goto_main()
 
     def _friend_gifts_give(self):
-       time=Timer(4,count=8).start()
+       time=Timer(8,count=10).start()
        for _ in self.loop():
         if self.appear(GIFTS_GIVE,interval=1):
             self.device.click(GIFTS_GIVE)
@@ -29,17 +29,23 @@ class FriendGifts(UI):
             raise GameStuckError("friend gifts give failed")
 
     def _friend_gifts_claim(self):
-        time=Timer(4,count=8).start()
+        time=Timer(8,count=10).start()
         for _ in self.loop():
             if self.appear(GIFTS_CLAIM,interval=1):
                 self.device.click(GIFTS_CLAIM)
                 continue
             if self.appear(GIFTS_CLAIM_CONFIRM,interval=1):
-                self.device.click(GIFTS_CLAIM_CONFIRM)
+                break
+            if self.appear(GIFTS_CLAIM_CHECK):
+                return  True
+            if time.reached():
+                raise GameStuckError("friend gifts claim failed")
+        for _ in self.loop():
+            if self.appear_then_click(GIFTS_CLAIM_CONFIRM,interval=1):
                 continue
             if self.appear(GIFTS_CLAIM_CHECK):
                 break
             if time.reached():
                 raise GameStuckError("friend gifts claim failed")
-            self.device.click_record_clear()
 
+        return True

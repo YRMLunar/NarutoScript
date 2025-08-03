@@ -4,9 +4,9 @@ from module.base.utils import color_similarity_2d
 from module.exception import GameStuckError
 from tasks.base.page import page_main
 from tasks.base.ui import UI
-from tasks.organization.assets.assets_organization import ORGANIZATION_RED_DOT, MAIN_GOTO_ORGANIZATION, \
-    ORGANIZATION_PANEL, ORGANIZATION_PLAY_PANEL, ORGANIZATION_GOTO_PRAY, \
-    PRAY_BUTTON, PRAY_SUCCESS, PRAY_HAVE_DONE, ORGANIZATION_PRAY_CHECK, PRAY_BOX_CLAIM_15
+from tasks.organization.assets.assets_organization_pray import *
+from tasks.organization.assets.assets_organization_boxclaim import *
+from tasks.organization.assets.assets_organization_replacement import *
 from module.logger import  logger
 
 class Pray(UI):
@@ -15,6 +15,7 @@ class Pray(UI):
         self._organization_panel_enter()
         self._enter_pray_panel()
         self.pray()
+        self._pray_box_replacement()
         self.pray_box_claim()
         self.ui_goto_main()
     def _organization_panel_enter(self):
@@ -76,5 +77,26 @@ class Pray(UI):
         self.device.screenshot()
         print(self.match_template_luma(button=PRAY_BOX_CLAIM_15,similarity=0.99))
 
+    def _pray_box_replacement(self):
+        self.device.screenshot()
+        for _ in self.loop():
+            if self.appear(PRAY_BOX_REPLACEMENT,interval=1):
+                self.device.click(PRAY_BOX_REPLACEMENT)
+            if self.appear(PRAY_BOX_REPLACEMENT_CHECK):
+                break
+        for _ in self.loop():
+            PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.load_search(PRAY_BOX_REPLACEMENT_LIST.area)
+            success = PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.match_multi_template(self.device.image)
+            if success and len(success) == 3:
+                break
 
-
+            PRAY_BOX_REPLACEMENT_BUTTON.load_search(PRAY_BOX_REPLACEMENT_LIST.area)
+            buttons = PRAY_BOX_REPLACEMENT_BUTTON.match_multi_template(self.device.image)
+            if buttons:
+                for button in buttons:
+                    self.device.click(button)
+        for _ in self.loop():
+            if self.appear(PRAY_BUTTON,interval=1):
+                break
+            if self.appear(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED):
+                self.device.click(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED)
