@@ -7,10 +7,32 @@ PRAY_BOX_CLAIM_15 = ButtonWrapper(
     name='PRAY_BOX_CLAIM_15',
     cn=Button(
         file='./assets/cn/organization/boxclaim/PRAY_BOX_CLAIM_15.png',
-        area=(1153, 371, 1240, 450),
-        search=(1133, 351, 1260, 470),
-        color=(106, 78, 51),
-        button=(1153, 371, 1240, 450),
+        area=(1156, 375, 1238, 448),
+        search=(1136, 355, 1258, 468),
+        color=(115, 86, 54),
+        button=(1156, 375, 1238, 448),
+    ),
+    en=None,
+)
+PRAY_BOX_CLAIM_20 = ButtonWrapper(
+    name='PRAY_BOX_CLAIM_20',
+    cn=Button(
+        file='./assets/cn/organization/boxclaim/PRAY_BOX_CLAIM_20.png',
+        area=(1165, 265, 1242, 333),
+        search=(1145, 245, 1262, 353),
+        color=(102, 57, 36),
+        button=(1165, 265, 1242, 333),
+    ),
+    en=None,
+)
+PRAY_BOX_CLAIM_25 = ButtonWrapper(
+    name='PRAY_BOX_CLAIM_25',
+    cn=Button(
+        file='./assets/cn/organization/boxclaim/PRAY_BOX_CLAIM_25.png',
+        area=(1149, 155, 1233, 230),
+        search=(1129, 135, 1253, 250),
+        color=(95, 67, 50),
+        button=(1149, 155, 1233, 230),
     ),
     en=None,
 )

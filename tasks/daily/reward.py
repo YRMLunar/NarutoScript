@@ -36,7 +36,7 @@ class DailyRewardClaim(UI,daily_utils):
                 break
     def _reward_daily_claim(self):
         self.device.screenshot()
-        times=0;
+        times=0
         timer = Timer(10,15).start()
         for _ in self.loop():
             if self.detect_ring_golden_glow(DAILY_REWARD_10):

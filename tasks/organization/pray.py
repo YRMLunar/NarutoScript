@@ -8,15 +8,17 @@ from tasks.organization.assets.assets_organization_pray import *
 from tasks.organization.assets.assets_organization_boxclaim import *
 from tasks.organization.assets.assets_organization_replacement import *
 from module.logger import  logger
-
-class Pray(UI):
+import cv2
+from tasks.daily.utils import daily_utils
+import numpy as np
+class Pray(UI,daily_utils):
     def handle_Organization_Pray(self):
         self.ui_ensure(page_main)
         self._organization_panel_enter()
         self._enter_pray_panel()
         self.pray()
-        self._pray_box_replacement()
         self.pray_box_claim()
+        self._pray_box_replacement()
         self.ui_goto_main()
     def _organization_panel_enter(self):
         self.device.swipe([0, 322], [1280, 314])
@@ -73,12 +75,54 @@ class Pray(UI):
                 raise GameStuckError("Organization Pray Stucked")
 
     def pray_box_claim(self):
-        time=Timer(5, count=10).start()
+        time=Timer(10, count=15).start()
+        times=0
+        for _ in self.loop():
+            if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15):
+                self.device.click(PRAY_BOX_CLAIM_15)
+                continue
+            if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_20):
+                self.device.click(PRAY_BOX_CLAIM_20)
+                continue
+            if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_25):
+                self.device.click(PRAY_BOX_CLAIM_25)
+                continue
+            if not self.detect_golden_box():
+                times += 1
+                if times >=3:
+                    break
+            if time.reached():
+                break
+
+            #  0.01 30 60
+    def detect_ring_golden_glow(self, chest_area, inner_radius=20, outer_radius=60):
         self.device.screenshot()
-        print(self.match_template_luma(button=PRAY_BOX_CLAIM_15,similarity=0.99))
+        """在圆环区域内检测金光效果"""
+        image, ring_mask, detection_area = self.create_ring_mask(chest_area, inner_radius, outer_radius)
+
+        # 检测金色区域
+        golden_similarity = color_similarity_2d(image, color=(252, 209, 123))
+
+        # 应用圆环遮罩
+        masked_golden = cv2.bitwise_and(golden_similarity, golden_similarity, mask=ring_mask.astype(np.uint8))
+
+        # 阈值化处理
+        cv2.inRange(masked_golden, 200, 255, dst=masked_golden)
+
+        # 统计圆环内的金光像素
+        glow_pixels = cv2.countNonZero(masked_golden)
+        ring_pixels = cv2.countNonZero(ring_mask.astype(np.uint8))
+
+        # 计算金光像素占圆环面积的比例
+        if ring_pixels > 0:
+            glow_ratio = glow_pixels / ring_pixels
+            return glow_ratio > 0.02  # 5%以上认为有金光
+    def detect_golden_box(self):
+        not_golden_box=self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15) or self.detect_ring_golden_glow(PRAY_BOX_CLAIM_20) or self.detect_ring_golden_glow(PRAY_BOX_CLAIM_25)
+        return not_golden_box
 
     def _pray_box_replacement(self):
-        self.device.screenshot()
+
         for _ in self.loop():
             if self.appear(PRAY_BOX_REPLACEMENT,interval=1):
                 self.device.click(PRAY_BOX_REPLACEMENT)
@@ -100,3 +144,6 @@ class Pray(UI):
                 break
             if self.appear(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED):
                 self.device.click(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED)
+az=Pray('alas',task='Alas')
+az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\organization\20.png'
+print(az.detect_ring_golden_glow(PRAY_BOX_CLAIM_25))
