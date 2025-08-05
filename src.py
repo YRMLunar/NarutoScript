@@ -56,6 +56,9 @@ class StarRailCopilot(AzurLaneAutoScript):
     def feng_rao(self):
         from tasks.fengrao.fengrao import FengRao
         FengRao(config=self.config, device=self.device).run()
+    def mission(self):
+        from tasks.mission.mission import Mission
+        Mission(config=self.config,device=self.device).run()
 
 
 if __name__ == '__main__':
