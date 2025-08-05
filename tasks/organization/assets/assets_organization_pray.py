@@ -20,6 +20,13 @@ MAIN_GOTO_ORGANIZATION = ButtonWrapper(
             color=(92, 110, 89),
             button=(498, 282, 544, 373),
         ),
+        Button(
+            file='./assets/cn/organization/pray/MAIN_GOTO_ORGANIZATION.3.png',
+            area=(582, 278, 631, 357),
+            search=(562, 258, 651, 377),
+            color=(76, 107, 115),
+            button=(582, 278, 631, 357),
+        ),
     ],
     en=None,
 )
@@ -114,6 +121,13 @@ ORGANIZATION_RED_DOT = ButtonWrapper(
             search=(485, 244, 579, 385),
             color=(112, 132, 89),
             button=(505, 264, 559, 365),
+        ),
+        Button(
+            file='./assets/cn/organization/pray/ORGANIZATION_RED_DOT.3.png',
+            area=(587, 258, 643, 319),
+            search=(567, 238, 663, 339),
+            color=(71, 102, 108),
+            button=(587, 258, 643, 319),
         ),
     ],
     en=None,

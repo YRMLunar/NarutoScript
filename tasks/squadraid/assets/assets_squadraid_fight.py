@@ -102,6 +102,13 @@ MAIN_GOTO_SQUAD_RAID = ButtonWrapper(
             color=(103, 124, 131),
             button=(997, 155, 1037, 289),
         ),
+        Button(
+            file='./assets/cn/squadraid/fight/MAIN_GOTO_SQUAD_RAID.3.png',
+            area=(900, 157, 941, 276),
+            search=(880, 137, 961, 296),
+            color=(75, 87, 104),
+            button=(900, 157, 941, 276),
+        ),
     ],
     en=None,
 )
@@ -184,13 +191,22 @@ SQUAD_RAID_NEED_FIGHT = ButtonWrapper(
 )
 SQUAD_RAID_RED_DOT = ButtonWrapper(
     name='SQUAD_RAID_RED_DOT',
-    cn=Button(
-        file='./assets/cn/squadraid/fight/SQUAD_RAID_RED_DOT.png',
-        area=(815, 147, 864, 224),
-        search=(795, 127, 884, 244),
-        color=(113, 137, 147),
-        button=(815, 147, 864, 224),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/squadraid/fight/SQUAD_RAID_RED_DOT.png',
+            area=(815, 147, 864, 224),
+            search=(795, 127, 884, 244),
+            color=(113, 137, 147),
+            button=(815, 147, 864, 224),
+        ),
+        Button(
+            file='./assets/cn/squadraid/fight/SQUAD_RAID_RED_DOT.2.png',
+            area=(904, 143, 952, 217),
+            search=(884, 123, 972, 237),
+            color=(68, 75, 94),
+            button=(904, 143, 952, 217),
+        ),
+    ],
     en=None,
 )
 SQUAD_RAID_REMAIN_TIMES = ButtonWrapper(

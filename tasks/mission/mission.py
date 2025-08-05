@@ -32,7 +32,6 @@ class Mission(UI):
 
 
     def _mission_enter(self):
-
         self.device.swipe([0, 322], [1280, 314])
         move = True
         time = Timer(10, count=10).start()
@@ -97,20 +96,19 @@ class Mission(UI):
                 raise GameStuckError("Task Selected Stucked")
 
         for _ in self.loop():
-            if self.appear(CHARACTER_SELECTED_AUTO) and CHARACTER_UNSELECTED.match_template(self.device.image,
-                                                                                            direct_match=True):
+            if self.appear(CHARACTER_SELECTED_AUTO) and CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
                 self.device.click(CHARACTER_SELECTED_AUTO)
                 continue
             elif CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
                 self.device.click(CHARACTER_FIRST)
-            if CHARACTER_SELECTED.match_template(self.device.image, direct_match=True):
-                self.device.click(TASK_ACCEPT)
-                continue
             if THE_TASKBAR_IS_FULL.match_template(self.device.image, direct_match=True):
                 return False
             else:
                 if self.appear(MISSION_CHECK):
                     break
+            if CHARACTER_SELECTED.match_template(self.device.image, direct_match=True):
+                self.device.click(TASK_ACCEPT)
+
             if time.reached():
                 raise GameStuckError("Character selected Stucked")
         return True

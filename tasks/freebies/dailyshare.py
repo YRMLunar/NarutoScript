@@ -26,7 +26,7 @@ class DailyShare(UI):
                 break
             if time.reached():
                 raise GameStuckError("DailyShare Game stuck")
-        self.device.sleep(4)
+        self.device.sleep(3)
         if self.appear(SHARE_GOTO_QQ,interval=1):
             self.device.click(SHARE_BUTTON)
 

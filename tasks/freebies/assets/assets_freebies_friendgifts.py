@@ -27,13 +27,22 @@ FRIEND_PANEL_GOTO_MAIN = ButtonWrapper(
 )
 FRIEND_PANEL_RED_DOT = ButtonWrapper(
     name='FRIEND_PANEL_RED_DOT',
-    cn=Button(
-        file='./assets/cn/freebies/friendgifts/FRIEND_PANEL_RED_DOT.png',
-        area=(39, 192, 87, 223),
-        search=(19, 172, 107, 243),
-        color=(103, 137, 160),
-        button=(39, 192, 87, 223),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/freebies/friendgifts/FRIEND_PANEL_RED_DOT.png',
+            area=(39, 192, 87, 223),
+            search=(19, 172, 107, 243),
+            color=(103, 137, 160),
+            button=(39, 192, 87, 223),
+        ),
+        Button(
+            file='./assets/cn/freebies/friendgifts/FRIEND_PANEL_RED_DOT.2.png',
+            area=(36, 190, 87, 219),
+            search=(16, 170, 107, 239),
+            color=(75, 103, 131),
+            button=(36, 190, 87, 219),
+        ),
+    ],
     en=None,
 )
 GIFTS_CLAIM = ButtonWrapper(
@@ -102,12 +111,21 @@ GIVE_DONE = ButtonWrapper(
 )
 MAIN_GOTO_FRIEND_PANEL = ButtonWrapper(
     name='MAIN_GOTO_FRIEND_PANEL',
-    cn=Button(
-        file='./assets/cn/freebies/friendgifts/MAIN_GOTO_FRIEND_PANEL.png',
-        area=(33, 194, 81, 239),
-        search=(13, 174, 101, 259),
-        color=(77, 127, 155),
-        button=(33, 194, 81, 239),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/freebies/friendgifts/MAIN_GOTO_FRIEND_PANEL.png',
+            area=(33, 194, 81, 239),
+            search=(13, 174, 101, 259),
+            color=(77, 127, 155),
+            button=(33, 194, 81, 239),
+        ),
+        Button(
+            file='./assets/cn/freebies/friendgifts/MAIN_GOTO_FRIEND_PANEL.2.png',
+            area=(31, 195, 66, 237),
+            search=(11, 175, 86, 257),
+            color=(43, 95, 139),
+            button=(31, 195, 66, 237),
+        ),
+    ],
     en=None,
 )

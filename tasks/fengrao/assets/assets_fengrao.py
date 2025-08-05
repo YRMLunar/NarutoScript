@@ -60,13 +60,22 @@ FENG_RAO_HAVE_DONE = ButtonWrapper(
 )
 FENG_RAO_RED_DOT = ButtonWrapper(
     name='FENG_RAO_RED_DOT',
-    cn=Button(
-        file='./assets/cn/fengrao/FENG_RAO_RED_DOT.png',
-        area=(570, 329, 621, 411),
-        search=(550, 309, 641, 431),
-        color=(64, 85, 87),
-        button=(570, 329, 621, 411),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/fengrao/FENG_RAO_RED_DOT.png',
+            area=(570, 329, 621, 411),
+            search=(550, 309, 641, 431),
+            color=(64, 85, 87),
+            button=(570, 329, 621, 411),
+        ),
+        Button(
+            file='./assets/cn/fengrao/FENG_RAO_RED_DOT.2.png',
+            area=(325, 329, 377, 403),
+            search=(305, 309, 397, 423),
+            color=(59, 71, 81),
+            button=(325, 329, 377, 403),
+        ),
+    ],
     en=None,
 )
 FENG_RAO_START_FIGHT_BUTTON = ButtonWrapper(
@@ -96,6 +105,13 @@ MAIN_GOTO_FENG_RAO = ButtonWrapper(
             search=(469, 316, 554, 490),
             color=(73, 88, 98),
             button=(489, 336, 534, 470),
+        ),
+        Button(
+            file='./assets/cn/fengrao/MAIN_GOTO_FENG_RAO.3.png',
+            area=(328, 343, 368, 463),
+            search=(308, 323, 388, 483),
+            color=(78, 91, 100),
+            button=(328, 343, 368, 463),
         ),
     ],
     en=None,
