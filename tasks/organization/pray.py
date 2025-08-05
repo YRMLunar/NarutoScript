@@ -144,6 +144,3 @@ class Pray(UI,daily_utils):
                 break
             if self.appear(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED):
                 self.device.click(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED)
-az=Pray('alas',task='Alas')
-az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\organization\20.png'
-print(az.detect_ring_golden_glow(PRAY_BOX_CLAIM_25))

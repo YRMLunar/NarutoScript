@@ -6,6 +6,7 @@ from module.base.base import ModuleBase
 from module.base.button import ButtonWrapper
 from module.base.utils import area2corner, corner2area, area_in_area
 from module.device.method.utils import HierarchyButton
+from tasks.mission.priority import TaskPriority
 from .predict_system import TextSystem
 from .utils import infer_args as init_args
 from .utils import str2bool, draw_ocr
@@ -13,11 +14,13 @@ import argparse
 import sys
 from module.base.decorator import cached_property, del_cached_property
 class TxtBox:
-    def __init__(self,button,txt,threadhold,time=None,):
+    def __init__(self,button,txt,threadhold,time=None,soul_jade=None,box_type=None):
         self.area=corner2area(button)
         self.button=corner2area(button)
         self.txt=txt
         self.time=time
+        self.soul_jade=soul_jade
+        self.box_type:TaskPriority=box_type
         self.threadhold=threadhold
     def __repr__(self):
         """定义对象的字符串表示形式"""

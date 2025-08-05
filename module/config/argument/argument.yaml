@@ -90,7 +90,7 @@ Optimization:
     option: [ stay_there, goto_main, close_game, close_emulator ]
 
 # ==================== Daily ====================
-Mission:
+
 Freebies:
   FriendGifts:
     type: checkbox
@@ -121,12 +121,6 @@ SquadRaid:
     type: select
     value: SquadHelp
     option: [SquadHelp]
-FengRao:
-
-
-
-
-
 
 ItemStorage:
   Credit:
