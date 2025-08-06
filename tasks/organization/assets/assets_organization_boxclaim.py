@@ -18,10 +18,10 @@ PRAY_BOX_CLAIM_20 = ButtonWrapper(
     name='PRAY_BOX_CLAIM_20',
     cn=Button(
         file='./assets/cn/organization/boxclaim/PRAY_BOX_CLAIM_20.png',
-        area=(1165, 265, 1242, 333),
-        search=(1145, 245, 1262, 353),
-        color=(102, 57, 36),
-        button=(1165, 265, 1242, 333),
+        area=(1163, 264, 1245, 333),
+        search=(1143, 244, 1265, 353),
+        color=(113, 68, 39),
+        button=(1163, 264, 1245, 333),
     ),
     en=None,
 )

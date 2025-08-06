@@ -35,6 +35,48 @@
       "ServerUpdate": "05:00"
     }
   },
+  "FengRao": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "FengRao",
+      "ServerUpdate": "05:00"
+    }
+  },
+  "SquadRaid": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "SquadRaid",
+      "ServerUpdate": "05:00"
+    },
+    "SquadRaid": {
+      "SquadRaidBenefit": true,
+      "SquadRaidFight": "SquadHelp"
+    }
+  },
+  "Organization": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Organization",
+      "ServerUpdate": "05:00"
+    },
+    "Organization": {
+      "OrganizationPray": true
+    }
+  },
+  "SurvivalTrail": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "SurvivalTrail",
+      "ServerUpdate": "05:00"
+    },
+    "SurvivalTrail": {
+      "SurvivalTrialResetTimes": 0
+    }
+  },
   "Mission": {
     "Scheduler": {
       "Enable": false,
@@ -67,17 +109,6 @@
       "ZhaoCaiFree": true
     }
   },
-  "Organization": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "Organization",
-      "ServerUpdate": "05:00"
-    },
-    "Organization": {
-      "OrganizationPray": true
-    }
-  },
   "DailyReward": {
     "Scheduler": {
       "Enable": false,
@@ -101,23 +132,11 @@
       "StallerJade": {}
     }
   },
-  "SquadRaid": {
+  "CultivationRoad": {
     "Scheduler": {
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
-      "Command": "SquadRaid",
-      "ServerUpdate": "05:00"
-    },
-    "SquadRaid": {
-      "SquadRaidBenefit": true,
-      "SquadRaidFight": "SquadHelp"
-    }
-  },
-  "FengRao": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "FengRao",
+      "Command": "CultivationRoad",
       "ServerUpdate": "05:00"
     }
   }

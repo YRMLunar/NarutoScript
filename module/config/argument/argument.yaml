@@ -121,6 +121,11 @@ SquadRaid:
     type: select
     value: SquadHelp
     option: [SquadHelp]
+SurvivalTrail:
+  SurvivalTrialResetTimes:
+    type: input
+    value:  0
+
 
 ItemStorage:
   Credit:

@@ -84,31 +84,29 @@ class Mission(UI):
         time = Timer(10, count=20).start()
         task_select_time = Timer(4, count=8).start()
         for _ in self.loop():
+            if CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
+                break
             task = self._mission_select_priority()
             if task:
                 self.device.click(task)
                 continue
-            if CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
-                break
             if task_select_time.reached():
                 return False
             if time.reached():
                 raise GameStuckError("Task Selected Stucked")
-
         for _ in self.loop():
-            if self.appear(CHARACTER_SELECTED_AUTO) and CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
-                self.device.click(CHARACTER_SELECTED_AUTO)
-                continue
-            elif CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
-                self.device.click(CHARACTER_FIRST)
             if THE_TASKBAR_IS_FULL.match_template(self.device.image, direct_match=True):
                 return False
             else:
                 if self.appear(MISSION_CHECK):
                     break
-            if CHARACTER_SELECTED.match_template(self.device.image, direct_match=True):
-                self.device.click(TASK_ACCEPT)
+            if self.appear(CHARACTER_SELECTED_AUTO) and CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
+                self.device.click(CHARACTER_SELECTED_AUTO)
+            elif CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
+                self.device.click(CHARACTER_FIRST)
 
+            if CHARACTER_SELECTED.match_template(self.device.image, direct_match=True):
+                self.appear_then_click(TASK_ACCEPT)
             if time.reached():
                 raise GameStuckError("Character selected Stucked")
         return True

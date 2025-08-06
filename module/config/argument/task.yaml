@@ -22,6 +22,18 @@ Daily:
   menu: 'list'
   page: 'setting'
   tasks:
+    FengRao:
+      - Scheduler
+      - FengRao
+    SquadRaid:
+      - Scheduler
+      - SquadRaid
+    Organization:
+      - Scheduler
+      - Organization
+    SurvivalTrail:
+      - Scheduler
+      - SurvivalTrail
     Mission:
       - Scheduler
     Freebies:
@@ -30,24 +42,23 @@ Daily:
     ZhaoCai:
       - Scheduler
       - ZhaoCai
-    Organization:
-      - Scheduler
-      - Organization
     DailyReward:
       - Scheduler
       - DailyReward
     DataUpdate:
       - Scheduler
       - ItemStorage
-    SquadRaid:
-      - Scheduler
-      - SquadRaid
-    FengRao:
-      - Scheduler
-      - FengRao
+
+
 
 
 # ==================== Weekly ====================
+Weekly:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    CultivationRoad:
+      - Scheduler
 
 
 

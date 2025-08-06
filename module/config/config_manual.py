@@ -10,10 +10,11 @@ class ManualConfig:
 
     SCHEDULER_PRIORITY = """
     Restart
-    > Weekly 
+    > CultivationRoad 
     > SquadRaid
     > FengRao
     > Organization
+    > SurvivalTrail
     > Mission
     > Freebies  
     > ZhaoCai

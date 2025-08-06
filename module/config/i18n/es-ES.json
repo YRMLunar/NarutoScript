@@ -7,6 +7,10 @@
     "Daily": {
       "name": "Diario",
       "help": ""
+    },
+    "Weekly": {
+      "name": "Menu.Weekly.name",
+      "help": "Menu.Weekly.help"
     }
   },
   "Task": {
@@ -17,6 +21,22 @@
     "Restart": {
       "name": "Gestión de errores",
       "help": ""
+    },
+    "FengRao": {
+      "name": "Task.FengRao.name",
+      "help": "Task.FengRao.help"
+    },
+    "SquadRaid": {
+      "name": "Task.SquadRaid.name",
+      "help": "Task.SquadRaid.help"
+    },
+    "Organization": {
+      "name": "Task.Organization.name",
+      "help": "Task.Organization.help"
+    },
+    "SurvivalTrail": {
+      "name": "Task.SurvivalTrail.name",
+      "help": "Task.SurvivalTrail.help"
     },
     "Mission": {
       "name": "Task.Mission.name",
@@ -30,10 +50,6 @@
       "name": "Task.ZhaoCai.name",
       "help": "Task.ZhaoCai.help"
     },
-    "Organization": {
-      "name": "Task.Organization.name",
-      "help": "Task.Organization.help"
-    },
     "DailyReward": {
       "name": "Task.DailyReward.name",
       "help": "Task.DailyReward.help"
@@ -42,13 +58,9 @@
       "name": "Task.DataUpdate.name",
       "help": "Task.DataUpdate.help"
     },
-    "SquadRaid": {
-      "name": "Task.SquadRaid.name",
-      "help": "Task.SquadRaid.help"
-    },
-    "FengRao": {
-      "name": "Task.FengRao.name",
-      "help": "Task.FengRao.help"
+    "CultivationRoad": {
+      "name": "Task.CultivationRoad.name",
+      "help": "Task.CultivationRoad.help"
     }
   },
   "Scheduler": {
@@ -272,6 +284,16 @@
       "name": "SquadRaid.SquadRaidFight.name",
       "help": "SquadRaid.SquadRaidFight.help",
       "SquadHelp": "SquadHelp"
+    }
+  },
+  "SurvivalTrail": {
+    "_info": {
+      "name": "SurvivalTrail._info.name",
+      "help": "SurvivalTrail._info.help"
+    },
+    "SurvivalTrialResetTimes": {
+      "name": "SurvivalTrail.SurvivalTrialResetTimes.name",
+      "help": "SurvivalTrail.SurvivalTrialResetTimes.help"
     }
   },
   "ItemStorage": {

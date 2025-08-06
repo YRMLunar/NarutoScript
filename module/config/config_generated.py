@@ -59,6 +59,9 @@ class GeneratedConfig:
     SquadRaid_SquadRaidBenefit = True
     SquadRaid_SquadRaidFight = 'SquadHelp'  # SquadHelp
 
+    # Group `SurvivalTrail`
+    SurvivalTrail_SurvivalTrialResetTimes = 0
+
     # Group `ItemStorage`
     ItemStorage_Credit = {}
     ItemStorage_StallerJade = {}

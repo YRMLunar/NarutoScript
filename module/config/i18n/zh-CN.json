@@ -7,6 +7,10 @@
     "Daily": {
       "name": "每日",
       "help": ""
+    },
+    "Weekly": {
+      "name": "周常",
+      "help": ""
     }
   },
   "Task": {
@@ -16,6 +20,22 @@
     },
     "Restart": {
       "name": "异常处理",
+      "help": ""
+    },
+    "FengRao": {
+      "name": "丰饶之间",
+      "help": ""
+    },
+    "SquadRaid": {
+      "name": "小队突袭",
+      "help": ""
+    },
+    "Organization": {
+      "name": "组织活动",
+      "help": ""
+    },
+    "SurvivalTrail": {
+      "name": "生存试炼",
       "help": ""
     },
     "Mission": {
@@ -30,10 +50,6 @@
       "name": "招财",
       "help": ""
     },
-    "Organization": {
-      "name": "组织活动",
-      "help": ""
-    },
     "DailyReward": {
       "name": "活跃度奖励",
       "help": ""
@@ -42,12 +58,8 @@
       "name": "数据更新",
       "help": ""
     },
-    "SquadRaid": {
-      "name": "小队突袭",
-      "help": ""
-    },
-    "FengRao": {
-      "name": "丰饶之间",
+    "CultivationRoad": {
+      "name": "修行之路",
       "help": ""
     }
   },
@@ -272,6 +284,16 @@
       "name": "小队突袭",
       "help": "",
       "SquadHelp": "组织助战"
+    }
+  },
+  "SurvivalTrail": {
+    "_info": {
+      "name": "生存试炼",
+      "help": ""
+    },
+    "SurvivalTrialResetTimes": {
+      "name": "重置次数",
+      "help": ""
     }
   },
   "ItemStorage": {

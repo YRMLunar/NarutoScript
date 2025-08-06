@@ -59,6 +59,12 @@ class StarRailCopilot(AzurLaneAutoScript):
     def mission(self):
         from tasks.mission.mission import Mission
         Mission(config=self.config,device=self.device).run()
+    def survival_trail(self):
+        from tasks.trail.survival import Survival
+        Survival(config=self.config, device=self.device).run()
+    def cultivation_road(self):
+        from tasks.trail.cultivation import CultivationRoad
+        CultivationRoad(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

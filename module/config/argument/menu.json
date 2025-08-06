@@ -11,14 +11,22 @@
     "menu": "list",
     "page": "setting",
     "tasks": [
+      "FengRao",
+      "SquadRaid",
+      "Organization",
+      "SurvivalTrail",
       "Mission",
       "Freebies",
       "ZhaoCai",
-      "Organization",
       "DailyReward",
-      "DataUpdate",
-      "SquadRaid",
-      "FengRao"
+      "DataUpdate"
+    ]
+  },
+  "Weekly": {
+    "menu": "list",
+    "page": "setting",
+    "tasks": [
+      "CultivationRoad"
     ]
   }
 }

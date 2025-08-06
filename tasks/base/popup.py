@@ -12,7 +12,10 @@ class PopupHandler(ModuleBase):
     def handle_exit(self,interval=2):
         if self.appear_then_click(EXIT_CONFIRM,interval=interval):
             return True
+        if self.appear_then_click(EXIT_ORGANIZATION_RED_ENVELOPE,interval=interval):
+            return True
         return False
+
     def reward_appear(self) -> bool:
         buttons = GET_REWARD.data_buttons['share']
         for button in buttons:

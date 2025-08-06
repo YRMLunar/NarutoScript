@@ -171,6 +171,139 @@
       }
     }
   },
+  "FengRao": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "FengRao",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "05:00",
+        "display": "hide"
+      }
+    }
+  },
+  "SquadRaid": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "SquadRaid",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "05:00",
+        "display": "hide"
+      }
+    },
+    "SquadRaid": {
+      "SquadRaidBenefit": {
+        "type": "checkbox",
+        "value": true
+      },
+      "SquadRaidFight": {
+        "type": "select",
+        "value": "SquadHelp",
+        "option": [
+          "SquadHelp"
+        ]
+      }
+    }
+  },
+  "Organization": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Organization",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "05:00",
+        "display": "hide"
+      }
+    },
+    "Organization": {
+      "OrganizationPray": {
+        "type": "checkbox",
+        "value": true
+      }
+    }
+  },
+  "SurvivalTrail": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "SurvivalTrail",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "05:00",
+        "display": "hide"
+      }
+    },
+    "SurvivalTrail": {
+      "SurvivalTrialResetTimes": {
+        "type": "input",
+        "value": 0
+      }
+    }
+  },
   "Mission": {
     "Scheduler": {
       "Enable": {
@@ -272,39 +405,6 @@
       }
     }
   },
-  "Organization": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Organization",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "05:00",
-        "display": "hide"
-      }
-    },
-    "Organization": {
-      "OrganizationPray": {
-        "type": "checkbox",
-        "value": true
-      }
-    }
-  },
   "DailyReward": {
     "Scheduler": {
       "Enable": {
@@ -383,7 +483,7 @@
       }
     }
   },
-  "SquadRaid": {
+  "CultivationRoad": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
@@ -400,47 +500,7 @@
       },
       "Command": {
         "type": "input",
-        "value": "SquadRaid",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "05:00",
-        "display": "hide"
-      }
-    },
-    "SquadRaid": {
-      "SquadRaidBenefit": {
-        "type": "checkbox",
-        "value": true
-      },
-      "SquadRaidFight": {
-        "type": "select",
-        "value": "SquadHelp",
-        "option": [
-          "SquadHelp"
-        ]
-      }
-    }
-  },
-  "FengRao": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "FengRao",
+        "value": "CultivationRoad",
         "display": "hide"
       },
       "ServerUpdate": {

@@ -16,14 +16,14 @@ class MailReward(UI):
             out: MAIL_CHECK
         """
         logger.info('Mail enter')
-        time=Timer(4,count=8).start()
+        time=Timer(10,count=15).start()
         for _ in self.loop():
             if self.appear(MAIL_CHECK):
                 logger.info('Mail enter success')
                 break
             if time.reached():
                 raise GameStuckError("Mail enter failed")
-            if self.appear_then_click(MAIL_RED_DOT,interval=2):
+            if self.appear_then_click(MAIL_RED_DOT,interval=1):
                 continue
 
     def _mail_exit(self):
@@ -34,14 +34,13 @@ class MailReward(UI):
         """
         logger.info('Mail exit')
 
-        time=Timer(4,count=8).start()
+        time=Timer(5,count=10).start()
         for _ in self.loop():
             if self.ui_page_appear(page_main):
                 logger.info('go to page main')
                 break
-            if  self.appear_then_click(MAIL_EXIT,interval=2):
+            if  self.appear_then_click(MAIL_EXIT,interval=1):
                 logger.info('Mail exit done')
-                continue
             if time.reached():
                 raise GameStuckError("Mail exit failed")
 
@@ -55,16 +54,13 @@ class MailReward(UI):
             in: CLAIM_ALL
             out: CLAIM_ALL_DONE
         """
-        self.ui_ensure(page_mail)
         logger.info('Mail claim all')
         time=Timer(4,count=8).start()
         for _ in self.loop():
-            if self.appear(CLAIM_ALL,interval=1):
-                self.device.click(CLAIM_ALL)
-                continue
-
             if self.appear(CLAIM_ALL_DONE):
                 break
+            if self.appear(CLAIM_ALL,interval=1):
+                self.device.click(CLAIM_ALL)
             if time.reached():
                 raise GameStuckError("Mail claim all failed")
 

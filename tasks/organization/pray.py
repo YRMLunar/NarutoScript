@@ -2,6 +2,7 @@ from module.base import button
 from module.base.timer import Timer
 from module.base.utils import color_similarity_2d
 from module.exception import GameStuckError
+from tasks.base.assets.assets_base_popup import EXIT_ORGANIZATION_RED_ENVELOPE
 from tasks.base.page import page_main
 from tasks.base.ui import UI
 from tasks.organization.assets.assets_organization_pray import *
@@ -81,11 +82,11 @@ class Pray(UI,daily_utils):
             if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15):
                 self.device.click(PRAY_BOX_CLAIM_15)
                 continue
-            if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_20):
-                self.device.click(PRAY_BOX_CLAIM_20)
-                continue
             if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_25):
-                self.device.click(PRAY_BOX_CLAIM_25)
+                self.appear_then_click(PRAY_BOX_CLAIM_20,interval=1)
+                self.appear_then_click(PRAY_BOX_CLAIM_25)
+                continue
+            if self.appear_then_click(EXIT_ORGANIZATION_RED_ENVELOPE):
                 continue
             if not self.detect_golden_box():
                 times += 1
@@ -116,31 +117,42 @@ class Pray(UI,daily_utils):
         # 计算金光像素占圆环面积的比例
         if ring_pixels > 0:
             glow_ratio = glow_pixels / ring_pixels
+            print(glow_ratio)
             return glow_ratio > 0.02  # 5%以上认为有金光
     def detect_golden_box(self):
-        not_golden_box=self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15) or self.detect_ring_golden_glow(PRAY_BOX_CLAIM_20) or self.detect_ring_golden_glow(PRAY_BOX_CLAIM_25)
+        not_golden_box=self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15) or self.detect_ring_golden_glow(PRAY_BOX_CLAIM_25)
         return not_golden_box
 
     def _pray_box_replacement(self):
-
+        time=Timer(3, count=5).start()
         for _ in self.loop():
             if self.appear(PRAY_BOX_REPLACEMENT,interval=1):
                 self.device.click(PRAY_BOX_REPLACEMENT)
             if self.appear(PRAY_BOX_REPLACEMENT_CHECK):
                 break
+            if time.reached():
+                logger.info('organization box replacement not detected')
+                return
+        claim_time=Timer(10, count=20).start()
         for _ in self.loop():
             PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.load_search(PRAY_BOX_REPLACEMENT_LIST.area)
             success = PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.match_multi_template(self.device.image)
             if success and len(success) == 3:
                 break
-
             PRAY_BOX_REPLACEMENT_BUTTON.load_search(PRAY_BOX_REPLACEMENT_LIST.area)
             buttons = PRAY_BOX_REPLACEMENT_BUTTON.match_multi_template(self.device.image)
             if buttons:
                 for button in buttons:
                     self.device.click(button)
+            if claim_time.reached():
+                raise GameStuckError("Organization Box Replacement Stucked")
         for _ in self.loop():
             if self.appear(PRAY_BUTTON,interval=1):
                 break
             if self.appear(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED):
                 self.device.click(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED)
+            if time.reached():
+                raise GameStuckError("Organization Box Replacement Stucked")
+az=Pray('alas',task='Alas')
+az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\organization\22.png'
+print(az.detect_ring_golden_glow(PRAY_BOX_CLAIM_25))

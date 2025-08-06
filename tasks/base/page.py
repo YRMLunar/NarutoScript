@@ -6,6 +6,9 @@ from tasks.daily.assets.assets_daily_weekly import *
 from tasks.organization.assets.assets_organization_pray import *
 from tasks.organization.assets.assets_organization_replacement import *
 from tasks.organization.assets.assets_organization_boxclaim import *
+from tasks.trail.assets.assets_trail import *
+from tasks.trail.assets.assets_trail_survival import *
+from tasks.trail.assets.assets_trail_cultivation import *
 from tasks.zhaocai.assets.assets_zhaocai import *
 from tasks.fengrao.assets.assets_fengrao import *
 from tasks.squadraid.assets.assets_squadraid_fight import *
@@ -134,3 +137,14 @@ page_squad.link(SQUAD_RAID_EXIT,destination=page_main)
 page_feng_rao=Page(FENG_RAO_CHECK)
 page_main.link(MAIN_GOTO_FENG_RAO,destination=page_feng_rao)
 page_feng_rao.link(FENG_RAO_EXIT,destination=page_main)
+#SurvivalTrail
+page_trail=Page(TRAIL_SURVIVAL_CHECK)
+page_survival_trail=Page(SURVIVAL_PAGE_CHECK)
+page_trail.link(TRAIL_SURVIVAL_CHECK,destination=page_survival_trail)
+page_survival_trail.link(SURVIVAL_EXIT,destination=page_trail)
+page_trail.link(TRAIL_EXIT,destination=page_main)
+#CultivationRoad
+page_cultivation=Page(CULTIVATION_PAGE_CHECK)
+page_trail.link(TRAIL_CULTIVATION_CHECK,destination=page_cultivation)
+
+
