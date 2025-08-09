@@ -43,8 +43,13 @@ class MainPage(PopupHandler):
                 return lang
 
         if lang_unknown:
-            logger.critical('Cannot detect in-game text language, please set it to 简体中文 or English')
-            raise RequestHumanTakeover
+            # Force return 'cn' when auto-detecting
+            logger.info('check_lang_from_map_plane matched lang: cn (forced)')
+            self.config.Emulator_GameLanguage = 'cn'
+            server.set_lang('cn')
+            MainPage._lang_checked = True
+            MainPage._lang_check_success = True
+            return 'cn'
         else:
             logger.warning(f'Cannot detect in-game text language, assume current lang={server.lang} is correct')
             MainPage._lang_checked = True
@@ -64,7 +69,7 @@ class MainPage(PopupHandler):
         if page != page_main:
             return False
 
-        # self.check_lang_from_map_plane()
+        self.check_lang_from_map_plane()
         return True
 
     def acquire_lang_checked(self):

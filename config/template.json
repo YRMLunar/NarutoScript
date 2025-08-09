@@ -85,7 +85,11 @@
       "ServerUpdate": "05:00"
     },
     "TiLi": {
-      "TiLiRemain": 0
+      "TiLiRemain": 0,
+      "DungeonFirst": true
+    },
+    "TiLiStorage": {
+      "Dungeon": {}
     }
   },
   "Mission": {

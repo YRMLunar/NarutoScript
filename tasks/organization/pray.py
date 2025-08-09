@@ -27,15 +27,6 @@ class Pray(UI,daily_utils):
         time = Timer(10, count=10).start()
         m=2
         for _ in self.loop():
-            ORGANIZATION_RED_DOT.load_search((200, 100, 1100, 400))
-            if self.appear_then_click(ORGANIZATION_RED_DOT):
-                continue
-            MAIN_GOTO_ORGANIZATION.load_search((200, 100, 1100, 400))
-            if MAIN_GOTO_ORGANIZATION.match_template(self.device.image,direct_match=True):
-                move = False
-                continue
-            if self.appear(ORGANIZATION_PANEL):
-                return True
             if time.reached():
                 if move and m%2==0:
                     self.device.swipe( [1200, 314],[0, 322])
@@ -47,23 +38,36 @@ class Pray(UI,daily_utils):
                     time.reset()
                 elif m>5:
                     raise GameStuckError("Organization Pray Stucked")
+            ORGANIZATION_RED_DOT.load_search((200, 100, 1100, 400))
+            if self.appear_then_click(ORGANIZATION_RED_DOT):
+                continue
+            MAIN_GOTO_ORGANIZATION.load_search((200, 100, 1100, 400))
+            if MAIN_GOTO_ORGANIZATION.match_template(self.device.image,direct_match=True):
+                move = False
+                continue
+            if self.appear(ORGANIZATION_PANEL):
+                return True
+
         logger.info(f"Organization Panel entered")
 
     def _enter_pray_panel(self):
         time=Timer(8, count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Organization Pray Stucked")
             if self.appear_then_click(ORGANIZATION_PLAY_PANEL):
                 continue
             if self.appear_then_click(ORGANIZATION_GOTO_PRAY):
                 continue
             if self.appear(ORGANIZATION_PRAY_CHECK):
                 break
-            if time.reached():
-                raise GameStuckError("Organization Pray Stucked")
+
 
     def pray(self):
         time=Timer(6, count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Organization Pray Stucked")
             if self.appear_then_click(PRAY_BUTTON,interval=1):
                 continue
             if self.appear(PRAY_SUCCESS,interval=1):
@@ -72,13 +76,18 @@ class Pray(UI,daily_utils):
             if self.appear(PRAY_HAVE_DONE,interval=1):
                 self.device.click(PRAY_HAVE_DONE)
                 break
-            if time.reached():
-                raise GameStuckError("Organization Pray Stucked")
+
 
     def pray_box_claim(self):
         time=Timer(10, count=15).start()
         times=0
         for _ in self.loop():
+            if not self.detect_golden_box():
+                times += 1
+                if times >=3:
+                    break
+            if time.reached():
+                break
             if self.detect_ring_golden_glow(PRAY_BOX_CLAIM_15):
                 self.device.click(PRAY_BOX_CLAIM_15)
                 continue
@@ -88,12 +97,8 @@ class Pray(UI,daily_utils):
                 continue
             if self.appear_then_click(EXIT_ORGANIZATION_RED_ENVELOPE):
                 continue
-            if not self.detect_golden_box():
-                times += 1
-                if times >=3:
-                    break
-            if time.reached():
-                break
+
+
 
             #  0.01 30 60
     def detect_ring_golden_glow(self, chest_area, inner_radius=20, outer_radius=60):
@@ -126,15 +131,18 @@ class Pray(UI,daily_utils):
     def _pray_box_replacement(self):
         time=Timer(3, count=5).start()
         for _ in self.loop():
+            if time.reached():
+                logger.info('organization box replacement not detected')
+                return
             if self.appear(PRAY_BOX_REPLACEMENT,interval=1):
                 self.device.click(PRAY_BOX_REPLACEMENT)
             if self.appear(PRAY_BOX_REPLACEMENT_CHECK):
                 break
-            if time.reached():
-                logger.info('organization box replacement not detected')
-                return
+
         claim_time=Timer(10, count=20).start()
         for _ in self.loop():
+            if claim_time.reached():
+                raise GameStuckError("Organization Box Replacement Stucked")
             PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.load_search(PRAY_BOX_REPLACEMENT_LIST.area)
             success = PRAY_BOX_REPLACEMENT_HAVE_CLAIMED.match_multi_template(self.device.image)
             if success and len(success) == 3:
@@ -144,15 +152,15 @@ class Pray(UI,daily_utils):
             if buttons:
                 for button in buttons:
                     self.device.click(button)
-            if claim_time.reached():
-                raise GameStuckError("Organization Box Replacement Stucked")
+
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Organization Box Replacement Stucked")
             if self.appear(PRAY_BUTTON,interval=1):
                 break
             if self.appear(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED):
                 self.device.click(PRAY_BOX_REPLACEMENT_HAVE_CLAIMED)
-            if time.reached():
-                raise GameStuckError("Organization Box Replacement Stucked")
+
 az=Pray('alas',task='Alas')
 az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\organization\22.png'
 print(az.detect_ring_golden_glow(PRAY_BOX_CLAIM_25))

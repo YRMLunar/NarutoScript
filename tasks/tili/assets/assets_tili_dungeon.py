@@ -62,10 +62,10 @@ SWEEP_DONE = ButtonWrapper(
     name='SWEEP_DONE',
     cn=Button(
         file='./assets/cn/tili/dungeon/SWEEP_DONE.png',
-        area=(0, 0, 1280, 720),
-        search=(0, 0, 1280, 720),
-        color=(95, 89, 74),
-        button=(0, 0, 1280, 720),
+        area=(456, 333, 837, 387),
+        search=(436, 313, 857, 407),
+        color=(80, 78, 72),
+        button=(456, 333, 837, 387),
     ),
     en=None,
 )
@@ -73,10 +73,10 @@ SWEEP_END_CONFIRM = ButtonWrapper(
     name='SWEEP_END_CONFIRM',
     cn=Button(
         file='./assets/cn/tili/dungeon/SWEEP_END_CONFIRM.png',
-        area=(0, 0, 1280, 720),
-        search=(0, 0, 1280, 720),
-        color=(44, 41, 34),
-        button=(0, 0, 1280, 720),
+        area=(539, 412, 739, 487),
+        search=(519, 392, 759, 507),
+        color=(213, 144, 17),
+        button=(539, 412, 739, 487),
     ),
     en=None,
 )

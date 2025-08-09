@@ -17,14 +17,15 @@ class ZhaoCaiFree(UI):
     def freezhaocai(self):
         time=Timer(20,count=20).start()
         for _ in self.loop():
+            if time.reached():
+                logger.warning("ZhaoCai timeout")
+                raise GameStuckError("ZhaoCai timeout after 20 seconds")
             if self.appear_then_click(ZHAO_CAI_FREE,interval=1):
                 continue
             if self.appear(ZHAO_CAI_PAIED):
                 self.ui_goto_main()
                 break
-            if time.reached():
-                logger.warning("ZhaoCai timeout")
-                raise GameStuckError("ZhaoCai timeout after 20 seconds")
+
 
     def _enter_zhaocai(self):
         for _ in self.loop():

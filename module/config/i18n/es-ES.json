@@ -308,6 +308,20 @@
     "TiLiRemain": {
       "name": "TiLi.TiLiRemain.name",
       "help": "TiLi.TiLiRemain.help"
+    },
+    "DungeonFirst": {
+      "name": "TiLi.DungeonFirst.name",
+      "help": "TiLi.DungeonFirst.help"
+    }
+  },
+  "TiLiStorage": {
+    "_info": {
+      "name": "TiLiStorage._info.name",
+      "help": "TiLiStorage._info.help"
+    },
+    "Dungeon": {
+      "name": "TiLiStorage.Dungeon.name",
+      "help": "TiLiStorage.Dungeon.help"
     }
   },
   "CultivationRoad": {

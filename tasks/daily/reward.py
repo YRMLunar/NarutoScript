@@ -26,14 +26,15 @@ class DailyRewardClaim(UI,daily_utils):
         self.device.screenshot()
         time=Timer(5,10).start()
         for _ in self.loop():
+            if time.reached():
+                break
             if self.appear_then_click(WEEKlY_BUTTON,interval=3):
                 continue
             if self.appear_then_click(WEEKLY_CLAIM):
                 continue
             if self.appear(WEEKLY_CLAIM_DONE):
                 break
-            if time.reached():
-                break
+
     def _reward_daily_claim(self):
         self.device.screenshot()
         times=0

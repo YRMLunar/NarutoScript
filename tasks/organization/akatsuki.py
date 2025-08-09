@@ -21,6 +21,17 @@ class Akatsuki(UI):
         time = Timer(10, count=10).start()
         m=2
         for _ in self.loop():
+            if time.reached():
+                if move and m%2==0:
+                    self.device.swipe( [1200, 314],[0, 322])
+                    time.reset()
+                    m=m+1
+                elif move and m%2==1:
+                    self.device.swipe([0, 322], [1200, 314])
+                    m=m+1
+                    time.reset()
+                elif m>5:
+                    raise GameStuckError("Organization Play Panel Stucked")
             if self.appear(ORGANIZATION_GOTO_PRAY,interval=1):
                 break
             if self.appear(ORGANIZATION_PLAY_PANEL):
@@ -33,43 +44,37 @@ class Akatsuki(UI):
             if MAIN_GOTO_ORGANIZATION.match_template(self.device.image,direct_match=True):
                 move = False
                 continue
-            if time.reached():
-                if move and m%2==0:
-                    self.device.swipe( [1200, 314],[0, 322])
-                    time.reset()
-                    m=m+1
-                elif move and m%2==1:
-                    self.device.swipe([0, 322], [1200, 314])
-                    m=m+1
-                    time.reset()
-                elif m>5:
-                    raise GameStuckError("Organization Play Panel Stucked")
+
         logger.info(f"Organization Play Panel entered")
     def _enter_akatsuki_panel(self):
         time=Timer(8, count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Organization Akatsuki Enter Stucked")
             if self.appear(AKATSUKI_CHECK):
                 break
             if self.appear_then_click(ORGANIZATION_GOTO_AKATSUKI,interval=1):
                 continue
-            if time.reached():
-                raise GameStuckError("Organization Akatsuki Enter Stucked")
+
 
     def _reward_claim(self):
         time=Timer(3, count=5).start()
         for _ in self.loop():
+            if time.reached() and self.appear(AKATSUKI_DONE):
+                return True
             if self.appear(AKATSUKI_REWARD_CHECK):
                 break
             if self.appear(AKATSUKI_REWARD_RED_DOT):
                 self.device.click(AKATSUKI_REWARD_RED_DOT)
-            if time.reached() and self.appear(AKATSUKI_DONE):
-                return True
+
             elif time.reached():
                 return  False
         claim_time=Timer(10, count=20).start()
         self.device.click(REWARD_CLAIM_BUTTON)
         times=0
         for _ in self.loop():
+            if claim_time.reached():
+                raise GameStuckError("Akatsuki Reward Claim Stucked")
             REWARD_HAVE_CLAIMED.load_search(REWARD_CLAIM_PANEL.area)
             success = REWARD_HAVE_CLAIMED.match_multi_template(self.device.image)
             if success and len(success) == 5:
@@ -85,8 +90,7 @@ class Akatsuki(UI):
             if buttons:
                 for button in buttons:
                     self.device.click(button)
-            if claim_time.reached():
-                raise GameStuckError("Akatsuki Reward Claim Stucked")
+
     def _akatsuki_exit(self):
         self.device.click_record_clear()
         for _ in self.loop():
@@ -102,5 +106,3 @@ class Akatsuki(UI):
                 self.device.click(ORGANIZATION_EXIT)
                 continue
 
-az=Akatsuki('alas',task='Alas')
-az.handle_pursue_akatsuki()

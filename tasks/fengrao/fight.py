@@ -64,6 +64,8 @@ class FengRaoFight(UI):
         skill_2_first = True
         try:
             for _ in self.loop():
+                    if time.reached():
+                        raise GameStuckError("Feng Rao  Stucked")
                     if self.appear(FENG_RAO_CHECK):
                         return
                     if self.appear(FENG_RAO_HAVE_DONE):
@@ -85,8 +87,7 @@ class FengRaoFight(UI):
                         self.device.long_click(CHARACTER_ATTACK, 3)   # 执行3秒
                     if len(self.device.click_record) > 10:
                         self.device.click_record_clear()
-                    if time.reached():
-                        raise GameStuckError("Feng Rao  Stucked")
+
         finally:
             self.device.click_record_clear()
             self._force_release_touch()

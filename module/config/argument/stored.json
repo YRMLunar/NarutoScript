@@ -22,5 +22,18 @@
     },
     "order": 8,
     "color": "#fc8f8b"
+  },
+  "Dungeon": {
+    "name": "Dungeon",
+    "path": "TiLi.TiLiStorage.Dungeon",
+    "i18n": "TiLiStorage.Dungeon.name",
+    "stored": "StoredDungeon",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 1,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
   }
 }

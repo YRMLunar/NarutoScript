@@ -18,11 +18,12 @@ class MailReward(UI):
         logger.info('Mail enter')
         time=Timer(10,count=15).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Mail enter failed")
             if self.appear(MAIL_CHECK):
                 logger.info('Mail enter success')
                 break
-            if time.reached():
-                raise GameStuckError("Mail enter failed")
+
             if self.appear_then_click(MAIL_RED_DOT,interval=1):
                 continue
 
@@ -36,13 +37,14 @@ class MailReward(UI):
 
         time=Timer(5,count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Mail exit failed")
             if self.ui_page_appear(page_main):
                 logger.info('go to page main')
                 break
             if  self.appear_then_click(MAIL_EXIT):
                 logger.info('Mail exit done')
-            if time.reached():
-                raise GameStuckError("Mail exit failed")
+
 
 
 
@@ -57,12 +59,13 @@ class MailReward(UI):
         logger.info('Mail claim all')
         time=Timer(4,count=8).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Mail claim all failed")
             if self.appear(CLAIM_ALL_DONE):
                 break
             if self.appear(CLAIM_ALL):
                 self.device.click(CLAIM_ALL)
-            if time.reached():
-                raise GameStuckError("Mail claim all failed")
+
 
 
 

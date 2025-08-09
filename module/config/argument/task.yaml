@@ -19,7 +19,7 @@ Alas:
 # ==================== Daily ====================
 
 Daily:
-  menu: 'list'
+  menu: 'collapse'
   page: 'setting'
   tasks:
     FengRao:
@@ -37,6 +37,7 @@ Daily:
     TiLi:
       - Scheduler
       - TiLi
+      - TiLiStorage
     Mission:
       - Scheduler
     Freebies:
@@ -55,9 +56,11 @@ Daily:
 
 
 
+
+
 # ==================== Weekly ====================
 Weekly:
-  menu: 'list'
+  menu: 'collapse'
   page: 'setting'
   tasks:
     CultivationRoad:

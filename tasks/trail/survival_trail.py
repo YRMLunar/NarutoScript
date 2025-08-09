@@ -21,6 +21,17 @@ class SurvivalTrail(UI):
         time = Timer(10, count=10).start()
         m=2
         for _ in self.loop():
+            if time.reached():
+                if move and m%2==0:
+                    self.device.swipe([0, 322], [1200, 314])
+                    time.reset()
+                    m=m+1
+                elif move and m%2==1:
+                    self.device.swipe( [1200, 314],[0, 322])
+                    m=m+1
+                    time.reset()
+                elif m>5:
+                    raise GameStuckError("Survival Trial Stucked")
             if self.appear(SURVIVAL_PAGE_CHECK):
                 break
             TRAIL_RED_DOT.load_search((200, 50, 1000, 700))
@@ -35,23 +46,15 @@ class SurvivalTrail(UI):
                 continue
             if self.appear(SURVIVAL_TELEPORT):
                 break
-            if time.reached():
-                if move and m%2==0:
-                    self.device.swipe([0, 322], [1200, 314])
-                    time.reset()
-                    m=m+1
-                elif move and m%2==1:
-                    self.device.swipe( [1200, 314],[0, 322])
-                    m=m+1
-                    time.reset()
-                elif m>5:
-                    raise GameStuckError("Survival Trial Stucked")
+
         logger.info(f"survival trial entered")
 
     def _mop_up(self):
         time = Timer(25, count=30).start()
         for _ in self.loop():
-            print('detect')
+            if time.reached():
+                raise GameStuckError("Survival Trial Stucked")
+
             if self.appear(SURVIVAL_TELEPORT):
                 self.device.click(SURVIVAL_TELEPORT)
                 continue
@@ -59,9 +62,10 @@ class SurvivalTrail(UI):
                 break
             if self.appear(SURVIVAL_HAVE_DONE):
                 break
+
+        for _ in self.loop():
             if time.reached():
                 raise GameStuckError("Survival Trial Stucked")
-        for _ in self.loop():
             if self.appear(SURVIVAL_HAVE_DONE):
                 break
             if self.appear(SURVIVAL_MOP_UP_DONE):
@@ -78,9 +82,10 @@ class SurvivalTrail(UI):
                 if self.appear(SURVIVAL_MOP_UP_BUTTON):
                     self.device.click(SURVIVAL_MOP_UP_BUTTON)
                     continue
+
+        for _ in self.loop():
             if time.reached():
                 raise GameStuckError("Survival Trial Stucked")
-        for _ in self.loop():
             ocr=Digit(SURVIVAL_MOP_UP_TIMES,lang='cn')
             times=ocr.ocr_single_line(self.device.image)
             print(times)
@@ -93,25 +98,27 @@ class SurvivalTrail(UI):
                     self._mop_up()
                 else :
                     break
-            if time.reached():
-                raise GameStuckError("Survival Trial Stucked")
+
         return True
 
     def _survival_reset(self):
         time=Timer(10, count=20).start()
         for _ in self.loop():
+            if time.reached():
+                return False
             if self.appear(SURVIVAL_RESET_FAILED):
                 return False
             if self.appear_then_click(SURVIVAL_RESET_BUTTON):
                 continue
-            if time.reached():
-                return False
+
 
         return True
 
     def survival_exit(self):
         time=Timer(20, count=30).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Survival Trial Exit   Stucked")
             if self.ui_page_appear(page_main):
                 break
             if self.appear(SURVIVAL_EXIT):
@@ -120,6 +127,5 @@ class SurvivalTrail(UI):
             if self.appear(TRAIL_EXIT):
                 self.device.click(TRAIL_EXIT)
                 continue
-            if time.reached():
-                raise GameStuckError("Survival Trial Exit   Stucked")
+
 

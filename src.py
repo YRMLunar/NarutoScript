@@ -65,6 +65,12 @@ class StarRailCopilot(AzurLaneAutoScript):
     def cultivation_road(self):
         from tasks.trail.cultivation import CultivationRoad
         CultivationRoad(config=self.config, device=self.device).run()
+    def ti_li(self):
+        from tasks.tili.tili import TiLi
+        TiLi(config=self.config, device=self.device).run()
+    def Dungeon(self):
+        from tasks.tili.dungeon import Dungeon
+        Dungeon(config=self.config, device=self.device).handle_dungeon()
 
 
 if __name__ == '__main__':

@@ -302,12 +302,26 @@
   },
   "TiLi": {
     "_info": {
-      "name": "",
+      "name": "清体力",
       "help": ""
     },
     "TiLiRemain": {
       "name": "体力",
       "help": "只有大于10，任务才会执行"
+    },
+    "DungeonFirst": {
+      "name": "优先扫荡精英副本",
+      "help": ""
+    }
+  },
+  "TiLiStorage": {
+    "_info": {
+      "name": "TiLiStorage._info.name",
+      "help": "TiLiStorage._info.help"
+    },
+    "Dungeon": {
+      "name": "TiLiStorage.Dungeon.name",
+      "help": "TiLiStorage.Dungeon.help"
     }
   },
   "CultivationRoad": {

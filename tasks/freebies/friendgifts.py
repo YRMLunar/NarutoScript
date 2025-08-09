@@ -18,17 +18,20 @@ class FriendGifts(UI):
     def _friend_gifts_give(self):
        time=Timer(8,count=10).start()
        for _ in self.loop():
+        if time.reached():
+            raise GameStuckError("friend gifts give failed")
         if self.appear(GIFTS_GIVE,interval=1):
             self.device.click(GIFTS_GIVE)
             continue
         if self.appear(GIVE_DONE):
             break
-        if time.reached():
-            raise GameStuckError("friend gifts give failed")
+
 
     def _friend_gifts_claim(self):
         time=Timer(8,count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("friend gifts claim failed")
             if self.appear(GIFTS_CLAIM,interval=1):
                 self.device.click(GIFTS_CLAIM)
                 continue
@@ -36,15 +39,15 @@ class FriendGifts(UI):
                 break
             if self.appear(GIFTS_CLAIM_CHECK):
                 return  True
-            if time.reached():
-                raise GameStuckError("friend gifts claim failed")
+
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("friend gifts confirm failed")
             if self.appear_then_click(GIFTS_CLAIM_CONFIRM):
                 continue
             if self.appear(GIFTS_CLAIM_CHECK):
                 break
-            if time.reached():
-                raise GameStuckError("friend gifts confirm failed")
+
 
         return True
 

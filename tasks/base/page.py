@@ -6,6 +6,7 @@ from tasks.daily.assets.assets_daily_weekly import *
 from tasks.organization.assets.assets_organization_pray import *
 from tasks.organization.assets.assets_organization_replacement import *
 from tasks.organization.assets.assets_organization_boxclaim import *
+from tasks.tili.assets.assets_tili_dungeon import *
 from tasks.tili.assets.assets_tili_equipment import *
 from tasks.trail.assets.assets_trail import *
 from tasks.trail.assets.assets_trail_survival import *
@@ -158,5 +159,14 @@ page_sweep=Page(SWEEP_CHECK)
 page_sweep.link(EQUIPMENT_EXIT,destination=page_stuff)
 page_stuff.link(EQUIPMENT_EXIT,destination=page_equipment)
 page_equipment.link(EQUIPMENT_EXIT,destination=page_main)
-
+#Dungeon
+page_dungeon=Page(SWITCH_TO_DUNGEON)
+page_elite_dungeon=Page(CONVENIENT_SWEEP)
+page_dungeon_sweep=Page(SWEEP_BUTTON)
+page_dungeon_sweep_running=Page(SWEEP_RUNNING)
+page_dungeon_sweep_running.link(DUNGEON_EXIT,destination=page_dungeon_sweep)
+page_dungeon_sweep.link(DUNGEON_EXIT,destination=page_elite_dungeon)
+page_elite_dungeon.link(DUNGEON_EXIT,destination=page_main)
+page_dungeon.link(SWITCH_TO_DUNGEON,destination=page_elite_dungeon)
+page_dungeon.link(DUNGEON_EXIT,destination=page_main)
 

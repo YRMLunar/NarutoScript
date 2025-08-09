@@ -8,7 +8,7 @@ from tasks.tili.assets.assets_tili_equipment import *
 
 class Equipment(UI):
     def handle_equipment(self):
-        self.device.screenshot()
+
         for _ in self.loop():
             self._equipment_enter()
             res=self._equipment_advance()
@@ -74,8 +74,8 @@ class Equipment(UI):
             logger.info(f"Part {i+1}: {value}")
         for i, value in enumerate(part_values):
             if value < 72:  # 这里比较的是value（数值）
-                # return part_areas[i],value
-                return EQUIPMENT_KNIFE,0
+                return part_areas[i],value
+
         return None, None
 
     def _equipment_advance(self):
@@ -133,11 +133,7 @@ class Equipment(UI):
                 break
 
 
-        #todo 材料一材料二数量满足，识别合成并点击
-        #todo 扫描是否可以进阶
-        #todo 循环材料扫荡，直到体力不足返回false退出循环
-        #todo  退出前判断是否可以进阶/升级
-        #todo 开始前判断是否可以进阶/升级
+
 
 
 
@@ -184,6 +180,7 @@ class Equipment(UI):
                         break
                     if self.appear(SWEEP_CHECK):
                         self.device.click(EQUIPMENT_EXIT)
+                self.config.TiLi_TiLiRemain=current
                 return 'TI_LI_SHORTAGE'
             if STUFF_FULL.match_template(self.device.image,direct_match=True):
                 for _ in self.loop():
@@ -216,7 +213,4 @@ class Equipment(UI):
                 self.device.click(EQUIPMENT_EXIT)
                 continue
 
-
-az=Equipment('alas',task='Alas')
-az.handle_equipment()
 

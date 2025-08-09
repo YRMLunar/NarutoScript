@@ -8,7 +8,7 @@
     ]
   },
   "Daily": {
-    "menu": "list",
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
       "FengRao",
@@ -24,7 +24,7 @@
     ]
   },
   "Weekly": {
-    "menu": "list",
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
       "CultivationRoad"

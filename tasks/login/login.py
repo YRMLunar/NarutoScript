@@ -95,7 +95,8 @@ class Login(UI,GameInPopup):
         logger.hr('App start')
         self.device.app_start()
 
-
+        if self.ui_get_current_page():
+            return
         self.handle_app_login()
 
     def app_restart(self):

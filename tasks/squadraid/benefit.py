@@ -11,18 +11,19 @@ class HelpBattleBenefit(UI):
         self.device.screenshot()
         time=Timer(10,count=20).start()
         for _ in self.loop():
+            if time.reached():
+                break
             if self.appear(SQUAD_GOTO_HELP_BATTLE):
                 self.device.click(SQUAD_GOTO_HELP_BATTLE)
                 continue
             if self.appear(HELP_BATTLE_GOTO_MINE,interval=1):
                 self.device.click(HELP_BATTLE_GOTO_MINE)
                 continue
-            print(time)
+
             if self.appear(HELP_BATTLE_MINE_BENEFIT_CLAIM_DONE):
                 break
             if self.appear(HELP_BATTLE_MINE_BENEFIT_CLAIM):
                 self.device.click(HELP_BATTLE_MINE_BENEFIT_CLAIM)
                 continue
-            if time.reached():
-                break
+
         return True

@@ -64,6 +64,10 @@ class GeneratedConfig:
 
     # Group `TiLi`
     TiLi_TiLiRemain = 0
+    TiLi_DungeonFirst = True
+
+    # Group `TiLiStorage`
+    TiLiStorage_Dungeon = {}
 
     # Group `CultivationRoad`
     CultivationRoad_ClearRedDot = True

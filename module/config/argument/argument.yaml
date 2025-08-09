@@ -129,6 +129,13 @@ TiLi:
   TiLiRemain:
     type: input
     value:  0
+  DungeonFirst:
+    type: checkbox
+    value: true
+TiLiStorage:
+  Dungeon:
+    stored: StoredDungeon
+    display: hide
 CultivationRoad:
   ClearRedDot:
     type: checkbox

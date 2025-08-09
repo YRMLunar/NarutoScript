@@ -1,31 +1,14 @@
 from module.config.stored.classes import (
-    StoredAssignment,
     StoredBase,
     StoredBattlePassLevel,
-    StoredBattlePassQuestCalyx,
-    StoredBattlePassQuestCavernOfCorrosion,
-    StoredBattlePassQuestCredits,
-    StoredBattlePassQuestEchoOfWar,
-    StoredBattlePassQuestStagnantShadow,
-    StoredBattlePassQuestSynthesizeConsumables,
-    StoredBattlePassQuestTrailblazePower,
-    StoredBattlePassSimulatedUniverse,
-    StoredBattlePassWeeklyQuest,
     StoredCounter,
-    StoredDaily,
     StoredDailyActivity,
-    StoredDungeonDouble,
-    StoredEchoOfWar,
-    StoredExpiredAt0400,
-    StoredExpiredAtMonday0400,
-    StoredImmersifier,
+    StoredDungeon,
+    StoredExpiredAt0500,
+    StoredExpiredAtMonday0500,
     StoredInt,
     StoredPlanner,
     StoredPlannerOverall,
-    StoredRelic,
-    StoredResersed,
-    StoredSimulatedUniverse,
-    StoredSimulatedUniverseElite,
     StoredTrailblazePower,
 )
 
@@ -34,5 +17,6 @@ from module.config.stored.classes import (
 # ``` python -m module/config/config_updater.py ```
 
 class StoredGenerated:
+    Dungeon = StoredDungeon("TiLi.TiLiStorage.Dungeon")
     Credit = StoredInt("DataUpdate.ItemStorage.Credit")
     StallerJade = StoredInt("DataUpdate.ItemStorage.StallerJade")

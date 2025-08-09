@@ -68,6 +68,8 @@ class Mission(UI):
         self.device.click(res[0])
         time = Timer(15, count=20).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Mission reward claim")
             if self.appear_then_click(MISSION_REWARD_CLAIM_ALL):
                 continue
             if self.appear(MISSION_REWARD):
@@ -77,13 +79,14 @@ class Mission(UI):
             if not res:
                 break
             self.device.click(res[0])
-            if time.reached():
-                raise GameStuckError("Mission reward claim")
+
 
     def _mission_selected(self):
         time = Timer(10, count=20).start()
         task_select_time = Timer(4, count=8).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Task Selected Stucked")
             if CHARACTER_UNSELECTED.match_template(self.device.image, direct_match=True):
                 break
             task = self._mission_select_priority()
@@ -92,9 +95,10 @@ class Mission(UI):
                 continue
             if task_select_time.reached():
                 return False
-            if time.reached():
-                raise GameStuckError("Task Selected Stucked")
+
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Character selected Stucked")
             if THE_TASKBAR_IS_FULL.match_template(self.device.image, direct_match=True):
                 return False
             else:
@@ -107,8 +111,7 @@ class Mission(UI):
 
             if CHARACTER_SELECTED.match_template(self.device.image, direct_match=True):
                 self.appear_then_click(TASK_ACCEPT)
-            if time.reached():
-                raise GameStuckError("Character selected Stucked")
+
         return True
 
     def _mission_select_priority(self):
@@ -219,6 +222,8 @@ class Mission(UI):
     def mission_exit(self):
         time = Timer(10, 20).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError('Mission Exite Stucked')
             if self.appear(CHARACTER_SELECT_EXIT):
                 self.device.click(CHARACTER_SELECT_EXIT)
                 continue
@@ -227,5 +232,4 @@ class Mission(UI):
                 continue
             if self.ui_page_appear(page_main):
                 break
-            if time.reached():
-                raise GameStuckError('Mission Exite Stucked')
+

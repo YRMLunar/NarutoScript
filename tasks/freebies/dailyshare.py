@@ -14,6 +14,8 @@ class DailyShare(UI):
         self.ui_goto(page_panel)
         time=Timer(30,count=30).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("DailyShare Game stuck")
             self.device.click_record_clear()
             if self.appear(SHARE_BUTTON,interval=1):
                 self.device.click(SHARE_BUTTON)
@@ -24,8 +26,7 @@ class DailyShare(UI):
             if self.appear(QQ_MENU,interval=1):
                 self.device.app_stop_adb('com.tencent.mobileqq')
                 break
-            if time.reached():
-                raise GameStuckError("DailyShare Game stuck")
+
         self.device.sleep(3)
         if self.appear(SHARE_GOTO_QQ,interval=1):
             self.device.click(SHARE_BUTTON)

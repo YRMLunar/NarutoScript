@@ -25,15 +25,6 @@ class CultivationMopUp(UI):
         time = Timer(10, count=10).start()
         m=2
         for _ in self.loop():
-            MAIN_GOTO_TRAIL.load_search((200, 50, 1000, 700))
-            if self.appear_then_click(MAIN_GOTO_TRAIL):
-                move = False
-                continue
-            if self.appear(TRAIL_CULTIVATION_CHECK):
-                self.device.click(TRAIL_CULTIVATION_CHECK)
-                continue
-            if self.appear(CULTIVATION_PAGE_CHECK):
-                break
             if time.reached():
                 if move and m%2==0:
                     self.device.swipe([0, 322], [1200, 314])
@@ -45,6 +36,16 @@ class CultivationMopUp(UI):
                     time.reset()
                 elif m>5:
                     raise GameStuckError("Survival Trial Stucked")
+            MAIN_GOTO_TRAIL.load_search((200, 50, 1000, 700))
+            if self.appear_then_click(MAIN_GOTO_TRAIL):
+                move = False
+                continue
+            if self.appear(TRAIL_CULTIVATION_CHECK):
+                self.device.click(TRAIL_CULTIVATION_CHECK)
+                continue
+            if self.appear(CULTIVATION_PAGE_CHECK):
+                break
+
         logger.info(f"survival trial entered")
 
     def _cultivation_mop_up(self):
@@ -78,6 +79,8 @@ class CultivationMopUp(UI):
     def _cultivation_exit(self):
         time=Timer(10, count=10).start()
         for _ in self.loop():
+            if time.reached():
+                raise GameStuckError("Cultivation exit Stucked")
             if self.ui_page_appear(page_main):
                 break
             if self.appear(CULTIVATION_BOX_CHECK):
@@ -89,8 +92,7 @@ class CultivationMopUp(UI):
             if self.appear(CULTIVATION_EXIT):
                 self.device.click(CULTIVATION_EXIT)
                 continue
-            if time.reached():
-                raise GameStuckError("Cultivation exit Stucked")
+
 
     def _red_dot_clear(self):
         for _ in self.loop():

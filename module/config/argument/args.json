@@ -334,6 +334,18 @@
       "TiLiRemain": {
         "type": "input",
         "value": 0
+      },
+      "DungeonFirst": {
+        "type": "checkbox",
+        "value": true
+      }
+    },
+    "TiLiStorage": {
+      "Dungeon": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredDungeon"
       }
     }
   },
