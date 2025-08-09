@@ -12,8 +12,7 @@ class CultivationMopUp(UI):
     def handle_cultivation_mop_up(self):
         self._enter_trial()
         flag=self._cultivation_mop_up()
-        if
-        if flag=='MOP_UP_SUCCESS':
+        if self.config.CultivationRoad_ClearRedDot and flag=='MOP_UP_SUCCESS':
             self._red_dot_clear()
         self._cultivation_exit()
         return flag
