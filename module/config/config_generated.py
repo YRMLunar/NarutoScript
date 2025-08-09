@@ -62,6 +62,12 @@ class GeneratedConfig:
     # Group `SurvivalTrail`
     SurvivalTrail_SurvivalTrialResetTimes = 0
 
+    # Group `TiLi`
+    TiLi_TiLiRemain = 0
+
+    # Group `CultivationRoad`
+    CultivationRoad_ClearRedDot = True
+
     # Group `ItemStorage`
     ItemStorage_Credit = {}
     ItemStorage_StallerJade = {}

@@ -10,7 +10,7 @@ from tasks.freebies.assets.assets_freebies_dailyshare import MAIN_GOTO_PANEL, SH
 
 class DailyShare(UI):
     def handle_daily_share(self):
-        self.ui_ensure(page_main)
+
         self.ui_goto(page_panel)
         time=Timer(30,count=30).start()
         for _ in self.loop():

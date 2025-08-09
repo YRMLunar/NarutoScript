@@ -38,6 +38,10 @@
       "name": "Task.SurvivalTrail.name",
       "help": "Task.SurvivalTrail.help"
     },
+    "TiLi": {
+      "name": "Task.TiLi.name",
+      "help": "Task.TiLi.help"
+    },
     "Mission": {
       "name": "Task.Mission.name",
       "help": "Task.Mission.help"
@@ -294,6 +298,26 @@
     "SurvivalTrialResetTimes": {
       "name": "SurvivalTrail.SurvivalTrialResetTimes.name",
       "help": "SurvivalTrail.SurvivalTrialResetTimes.help"
+    }
+  },
+  "TiLi": {
+    "_info": {
+      "name": "TiLi._info.name",
+      "help": "TiLi._info.help"
+    },
+    "TiLiRemain": {
+      "name": "TiLi.TiLiRemain.name",
+      "help": "TiLi.TiLiRemain.help"
+    }
+  },
+  "CultivationRoad": {
+    "_info": {
+      "name": "CultivationRoad._info.name",
+      "help": "CultivationRoad._info.help"
+    },
+    "ClearRedDot": {
+      "name": "CultivationRoad.ClearRedDot.name",
+      "help": "CultivationRoad.ClearRedDot.help"
     }
   },
   "ItemStorage": {

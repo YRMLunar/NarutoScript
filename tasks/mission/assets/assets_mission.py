@@ -105,13 +105,22 @@ CHARACTER_UNSELECTED = ButtonWrapper(
 )
 MAIN_GOTO_MISSION = ButtonWrapper(
     name='MAIN_GOTO_MISSION',
-    cn=Button(
-        file='./assets/cn/mission/MAIN_GOTO_MISSION.png',
-        area=(530, 418, 576, 577),
-        search=(510, 398, 596, 597),
-        color=(146, 135, 108),
-        button=(530, 418, 576, 577),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/mission/MAIN_GOTO_MISSION.png',
+            area=(530, 418, 576, 577),
+            search=(510, 398, 596, 597),
+            color=(146, 135, 108),
+            button=(530, 418, 576, 577),
+        ),
+        Button(
+            file='./assets/cn/mission/MAIN_GOTO_MISSION.2.png',
+            area=(530, 421, 578, 577),
+            search=(510, 401, 598, 597),
+            color=(148, 137, 108),
+            button=(530, 421, 578, 577),
+        ),
+    ],
     en=None,
 )
 MISSION_CHARACTER_GRID = ButtonWrapper(
@@ -149,13 +158,22 @@ MISSION_EXIT = ButtonWrapper(
 )
 MISSION_RED_DOT = ButtonWrapper(
     name='MISSION_RED_DOT',
-    cn=Button(
-        file='./assets/cn/mission/MISSION_RED_DOT.png',
-        area=(507, 390, 550, 460),
-        search=(487, 370, 570, 480),
-        color=(92, 91, 90),
-        button=(507, 390, 550, 460),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/mission/MISSION_RED_DOT.png',
+            area=(507, 390, 550, 460),
+            search=(487, 370, 570, 480),
+            color=(92, 91, 90),
+            button=(507, 390, 550, 460),
+        ),
+        Button(
+            file='./assets/cn/mission/MISSION_RED_DOT.2.png',
+            area=(538, 409, 593, 481),
+            search=(518, 389, 613, 501),
+            color=(147, 125, 90),
+            button=(538, 409, 593, 481),
+        ),
+    ],
     en=None,
 )
 MISSION_REWARD = ButtonWrapper(

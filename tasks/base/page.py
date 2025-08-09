@@ -6,6 +6,7 @@ from tasks.daily.assets.assets_daily_weekly import *
 from tasks.organization.assets.assets_organization_pray import *
 from tasks.organization.assets.assets_organization_replacement import *
 from tasks.organization.assets.assets_organization_boxclaim import *
+from tasks.tili.assets.assets_tili_equipment import *
 from tasks.trail.assets.assets_trail import *
 from tasks.trail.assets.assets_trail_survival import *
 from tasks.trail.assets.assets_trail_cultivation import *
@@ -145,6 +146,17 @@ page_survival_trail.link(SURVIVAL_EXIT,destination=page_trail)
 page_trail.link(TRAIL_EXIT,destination=page_main)
 #CultivationRoad
 page_cultivation=Page(CULTIVATION_PAGE_CHECK)
+page_cultivation_box=Page(CULTIVATION_BOX_CHECK)
 page_trail.link(TRAIL_CULTIVATION_CHECK,destination=page_cultivation)
+page_cultivation_box.link(CULTIVATION_EXIT,page_cultivation)
+page_cultivation.link(CULTIVATION_BOX,destination=page_cultivation_box)
+
+#Equipment
+page_equipment=Page(EQUIPMENT_CHECK)
+page_stuff=Page(STUFF_CHECK)
+page_sweep=Page(SWEEP_CHECK)
+page_sweep.link(EQUIPMENT_EXIT,destination=page_stuff)
+page_stuff.link(EQUIPMENT_EXIT,destination=page_equipment)
+page_equipment.link(EQUIPMENT_EXIT,destination=page_main)
 
 

@@ -77,6 +77,17 @@
       "SurvivalTrialResetTimes": 0
     }
   },
+  "TiLi": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "TiLi",
+      "ServerUpdate": "05:00"
+    },
+    "TiLi": {
+      "TiLiRemain": 0
+    }
+  },
   "Mission": {
     "Scheduler": {
       "Enable": false,
@@ -138,6 +149,9 @@
       "NextRun": "2020-01-01 00:00:00",
       "Command": "CultivationRoad",
       "ServerUpdate": "05:00"
+    },
+    "CultivationRoad": {
+      "ClearRedDot": true
     }
   }
 }

@@ -5,7 +5,7 @@
       "help": ""
     },
     "Daily": {
-      "name": "每日",
+      "name": "日常",
       "help": ""
     },
     "Weekly": {
@@ -36,6 +36,10 @@
     },
     "SurvivalTrail": {
       "name": "生存试炼",
+      "help": ""
+    },
+    "TiLi": {
+      "name": "清体力",
       "help": ""
     },
     "Mission": {
@@ -294,6 +298,26 @@
     "SurvivalTrialResetTimes": {
       "name": "重置次数",
       "help": ""
+    }
+  },
+  "TiLi": {
+    "_info": {
+      "name": "",
+      "help": ""
+    },
+    "TiLiRemain": {
+      "name": "体力",
+      "help": "只有大于10，任务才会执行"
+    }
+  },
+  "CultivationRoad": {
+    "_info": {
+      "name": "修行之路",
+      "help": ""
+    },
+    "ClearRedDot": {
+      "name": "清除红点",
+      "help": "自动点击修行宝箱"
     }
   },
   "ItemStorage": {

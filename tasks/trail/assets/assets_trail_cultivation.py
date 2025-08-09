@@ -3,6 +3,28 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+CULTIVATION_BOX = ButtonWrapper(
+    name='CULTIVATION_BOX',
+    cn=Button(
+        file='./assets/cn/trail/cultivation/CULTIVATION_BOX.png',
+        area=(1193, 129, 1245, 258),
+        search=(1173, 109, 1265, 278),
+        color=(132, 95, 56),
+        button=(1193, 129, 1245, 258),
+    ),
+    en=None,
+)
+CULTIVATION_BOX_CHECK = ButtonWrapper(
+    name='CULTIVATION_BOX_CHECK',
+    cn=Button(
+        file='./assets/cn/trail/cultivation/CULTIVATION_BOX_CHECK.png',
+        area=(105, 189, 277, 246),
+        search=(85, 169, 297, 266),
+        color=(122, 83, 80),
+        button=(105, 189, 277, 246),
+    ),
+    en=None,
+)
 CULTIVATION_EXIT = ButtonWrapper(
     name='CULTIVATION_EXIT',
     cn=Button(

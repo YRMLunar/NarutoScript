@@ -4,18 +4,16 @@ from module.exception import GameStuckError
 from tasks.base.page import page_main, page_friend_panel
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_friendgifts import MAIN_GOTO_FRIEND_PANEL, GIFTS_GIVE, GIFTS_CLAIM, \
-    GIFTS_CLAIM_CHECK, GIFTS_CLAIM_CONFIRM, FRIEND_PANEL_RED_DOT, GIVE_DONE
+    GIFTS_CLAIM_CHECK, GIFTS_CLAIM_CONFIRM, FRIEND_PANEL_RED_DOT, GIVE_DONE, FRIEND_PANEL_GOTO_MAIN
 from module.base.timer import Timer
 from module.logger.logger import logger
 
 class FriendGifts(UI):
     def handle_friend_gifts(self):
-        self.ui_ensure(page_main)
-        if self.appear(FRIEND_PANEL_RED_DOT):
-            self.ui_goto(page_friend_panel)
-            self._friend_gifts_give()
-            self._friend_gifts_claim()
-        self.ui_goto_main()
+        self.ui_goto(page_friend_panel)
+        self._friend_gifts_give()
+        self._friend_gifts_claim()
+        self._friend_gifts_exit()
 
     def _friend_gifts_give(self):
        time=Timer(8,count=10).start()
@@ -34,18 +32,26 @@ class FriendGifts(UI):
             if self.appear(GIFTS_CLAIM,interval=1):
                 self.device.click(GIFTS_CLAIM)
                 continue
-            if self.appear(GIFTS_CLAIM_CONFIRM,interval=1):
+            if self.appear(GIFTS_CLAIM_CONFIRM):
                 break
             if self.appear(GIFTS_CLAIM_CHECK):
                 return  True
             if time.reached():
                 raise GameStuckError("friend gifts claim failed")
         for _ in self.loop():
-            if self.appear_then_click(GIFTS_CLAIM_CONFIRM,interval=1):
+            if self.appear_then_click(GIFTS_CLAIM_CONFIRM):
                 continue
             if self.appear(GIFTS_CLAIM_CHECK):
                 break
             if time.reached():
-                raise GameStuckError("friend gifts claim failed")
+                raise GameStuckError("friend gifts confirm failed")
 
         return True
+
+    def _friend_gifts_exit(self):
+        for _ in self.loop():
+            if self.appear(FRIEND_PANEL_GOTO_MAIN):
+                self.device.click(FRIEND_PANEL_GOTO_MAIN)
+                continue
+            elif self.ui_page_appear(page_main):
+                    break

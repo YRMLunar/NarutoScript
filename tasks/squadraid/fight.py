@@ -74,6 +74,7 @@ class SquadRaidFight(UI):
         if self.ui_page_appear(page_squad) or self.ui_page_appear(page_squad_help_battle):
             return True
         self.device.swipe( [1200, 314],[0, 322])
+        self.device.swipe( [1200, 314],[0, 322])
         move = True
         time = Timer(10, count=10).start()
         m=2
@@ -90,9 +91,11 @@ class SquadRaidFight(UI):
             if time.reached():
                 if move and m%2==0:
                     self.device.swipe([0, 322], [1200, 314])
+                    self.device.swipe([0, 322], [1200, 314])
                     time.reset()
                     m=m+1
                 elif move and m%2==1:
+                    self.device.swipe( [1200, 314],[0, 322])
                     self.device.swipe( [1200, 314],[0, 322])
                     m=m+1
                     time.reset()

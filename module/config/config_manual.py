@@ -15,6 +15,7 @@ class ManualConfig:
     > FengRao
     > Organization
     > SurvivalTrail
+    > TiLi
     > Mission
     > Freebies  
     > ZhaoCai

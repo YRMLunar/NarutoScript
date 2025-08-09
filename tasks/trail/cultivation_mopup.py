@@ -12,6 +12,9 @@ class CultivationMopUp(UI):
     def handle_cultivation_mop_up(self):
         self._enter_trial()
         flag=self._cultivation_mop_up()
+        if
+        if flag=='MOP_UP_SUCCESS':
+            self._red_dot_clear()
         self._cultivation_exit()
         return flag
     def _enter_trial(self):
@@ -78,6 +81,9 @@ class CultivationMopUp(UI):
         for _ in self.loop():
             if self.ui_page_appear(page_main):
                 break
+            if self.appear(CULTIVATION_BOX_CHECK):
+                self.device.click(CULTIVATION_EXIT)
+                continue
             if self.appear(CULTIVATION_MOP_UP_RUNNING_EXIT):
                 self.device.click(CULTIVATION_MOP_UP_RUNNING_EXIT)
                 continue
@@ -86,3 +92,12 @@ class CultivationMopUp(UI):
                 continue
             if time.reached():
                 raise GameStuckError("Cultivation exit Stucked")
+
+    def _red_dot_clear(self):
+        for _ in self.loop():
+            if self.appear(CULTIVATION_BOX_CHECK):
+                break
+            if self.appear(CULTIVATION_BOX):
+                self.device.click(CULTIVATION_BOX)
+                continue
+

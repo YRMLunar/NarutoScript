@@ -39,7 +39,7 @@ class MailReward(UI):
             if self.ui_page_appear(page_main):
                 logger.info('go to page main')
                 break
-            if  self.appear_then_click(MAIL_EXIT,interval=1):
+            if  self.appear_then_click(MAIL_EXIT):
                 logger.info('Mail exit done')
             if time.reached():
                 raise GameStuckError("Mail exit failed")
@@ -59,7 +59,7 @@ class MailReward(UI):
         for _ in self.loop():
             if self.appear(CLAIM_ALL_DONE):
                 break
-            if self.appear(CLAIM_ALL,interval=1):
+            if self.appear(CLAIM_ALL):
                 self.device.click(CLAIM_ALL)
             if time.reached():
                 raise GameStuckError("Mail claim all failed")

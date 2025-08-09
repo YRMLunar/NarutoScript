@@ -125,7 +125,14 @@ SurvivalTrail:
   SurvivalTrialResetTimes:
     type: input
     value:  0
-
+TiLi:
+  TiLiRemain:
+    type: input
+    value:  0
+CultivationRoad:
+  ClearRedDot:
+    type: checkbox
+    value:  true
 
 ItemStorage:
   Credit:

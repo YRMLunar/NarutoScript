@@ -62,7 +62,6 @@ class SurvivalTrail(UI):
             if time.reached():
                 raise GameStuckError("Survival Trial Stucked")
         for _ in self.loop():
-            print('mop up')
             if self.appear(SURVIVAL_HAVE_DONE):
                 break
             if self.appear(SURVIVAL_MOP_UP_DONE):
